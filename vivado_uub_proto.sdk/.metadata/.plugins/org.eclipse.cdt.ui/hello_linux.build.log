@@ -1,0 +1,6 @@
+17:45:31 **** Incremental Build of configuration Debug for project hello_linux ****
+make all 
+make: Nothing to be done for `all'.
+
+17:45:32 Build Finished (took 260ms)
+

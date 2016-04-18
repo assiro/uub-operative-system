@@ -1,0 +1,56 @@
+13:13:47 **** Auto Build of configuration Debug for project scope ****
+make all 
+'Building file: ../src/scope.c'
+'Invoking: ARM Linux gcc compiler'
+arm-xilinx-linux-gnueabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/scope.o" -MMD -MP -MF"src/scope.d" -MT"src/scope.d" -o "src/scope.o" "../src/scope.c"
+../src/scope.c: In function 'main':
+../src/scope.c:28:3: warning: implicit declaration of function 'usage' [-Wimplicit-function-declaration]
+   usage();
+   ^
+../src/scope.c:85:7: warning: unused variable 'w' [-Wunused-variable]
+   int w, ADC0A[5], ADC0B[5];
+       ^
+../src/scope.c:24:6: warning: unused variable 'select' [-Wunused-variable]
+  int select = 0;
+      ^
+../src/scope.c:23:7: warning: unused variable 'c' [-Wunused-variable]
+  char c;
+       ^
+../src/scope.c:21:19: warning: unused variable 'fp2' [-Wunused-variable]
+  FILE *fp, *fp1, *fp2;
+                   ^
+../src/scope.c:21:13: warning: unused variable 'fp1' [-Wunused-variable]
+  FILE *fp, *fp1, *fp2;
+             ^
+../src/scope.c:18:8: warning: unused variable 'ptr' [-Wunused-variable]
+  void *ptr,*pt[5],*ptrt,*ptrt1;
+        ^
+../src/scope.c:12:39: warning: unused variable 'ord' [-Wunused-variable]
+  int fd, file,i,j, Status, data_trig, ord;
+                                       ^
+../src/scope.c:12:10: warning: unused variable 'file' [-Wunused-variable]
+  int fd, file,i,j, Status, data_trig, ord;
+          ^
+../src/scope.c: At top level:
+../src/scope.c:124:6: warning: conflicting types for 'usage'
+ void usage(void)
+      ^
+../src/scope.c:28:3: note: previous implicit declaration of 'usage' was here
+   usage();
+   ^
+'Finished building: ../src/scope.c'
+' '
+'Building target: scope.elf'
+'Invoking: ARM Linux gcc linker'
+arm-xilinx-linux-gnueabi-gcc  -o "scope.elf"  ./src/scope.o   
+'Finished building target: scope.elf'
+' '
+'Invoking: ARM Linux Print Size'
+arm-xilinx-linux-gnueabi-size scope.elf  |tee "scope.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   3520	    340	      4	   3864	    f18	scope.elf
+'Finished building: scope.elf.size'
+' '
+
+13:13:48 Build Finished (took 999ms)
+

@@ -1,0 +1,25 @@
+17:55:32 **** Auto Build of configuration Debug for project spi ****
+make all 
+'Building file: ../src/spi.c'
+'Invoking: ARM Linux gcc compiler'
+arm-xilinx-linux-gnueabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/spi.o" -MMD -MP -MF"src/spi.d" -MT"src/spi.d" -o "src/spi.o" "../src/spi.c"
+../src/spi.c: In function 'main':
+../src/spi.c:103:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+'Finished building: ../src/spi.c'
+' '
+'Building target: spi.elf'
+'Invoking: ARM Linux gcc linker'
+arm-xilinx-linux-gnueabi-gcc  -o "spi.elf"  ./src/spi.o   
+'Finished building target: spi.elf'
+' '
+'Invoking: ARM Linux Print Size'
+arm-xilinx-linux-gnueabi-size spi.elf  |tee "spi.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   2540	    388	     12	   2940	    b7c	spi.elf
+'Finished building: spi.elf.size'
+' '
+
+17:55:33 Build Finished (took 1s.6ms)
+

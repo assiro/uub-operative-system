@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.cdt.ui.CElementWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1449650660214_2" label="all" name="all">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/RemoteSystemsTempFiles" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/test_periph" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/WP1_ADC" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/standalone_bsp_1" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1436191481357_0" label="Window Working Set" name="Aggregate for window 1436191481357"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1443450298189_1" label="Window Working Set" name="Aggregate for window 1443450298189"/>
+</workingSetManager>

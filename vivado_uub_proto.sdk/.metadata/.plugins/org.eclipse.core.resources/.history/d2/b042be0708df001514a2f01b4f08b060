@@ -1,0 +1,29 @@
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/mman.h>
+#include <fcntl.h>
+#include <string.h>
+#include <stdbool.h>
+
+//#include "bram_access.h"
+
+
+int main(int const argc, char const * const * const argv){
+	//pointers to the bram blocks
+	volatile dac_value *ch0, *ch1;
+	//bind the pointers to the bram blocks via memdev
+	print_if_err(bind_bram(&ch0, 0));
+	print_if_err(bind_bram(&ch1, 1));
+	uint16_t i=0;
+	//write a ramp to ch1, inverted ramp
+	for(i=0; i< DAC_VALUE_NUMBER; i++){
+		ch0[i] = (4096-i) && DAC_MASK;
+		ch1[i] = i && DAC_MASK;
+	}
+	//unbind the pointers, this also closes the /dev/mem
+	print_if_err(unbind_bram(&ch0));
+	print_if_err(unbind_bram(&ch1));
+	return 0;
+}

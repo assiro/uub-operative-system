@@ -1,0 +1,21 @@
+18:15:28 **** Auto Build of configuration Debug for project bram ****
+make all 
+Building file: ../src/main.c
+Invoking: ARM Linux gcc compiler
+arm-xilinx-linux-gnueabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: bram.elf
+Invoking: ARM Linux gcc linker
+arm-xilinx-linux-gnueabi-gcc  -o "bram.elf"  ./src/bram_access.o ./src/main.o   
+Finished building target: bram.elf
+ 
+Invoking: ARM Linux Print Size
+arm-xilinx-linux-gnueabi-size bram.elf  |tee "bram.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   3261	    312	      4	   3577	    df9	bram.elf
+Finished building: bram.elf.size
+ 
+
+18:15:29 Build Finished (took 836ms)
+

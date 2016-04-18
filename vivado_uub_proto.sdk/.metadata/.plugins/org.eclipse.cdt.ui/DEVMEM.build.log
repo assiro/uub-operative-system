@@ -1,0 +1,6 @@
+09:05:14 **** Incremental Build of configuration Debug for project DEVMEM ****
+make all 
+make: Nothing to be done for `all'.
+
+09:05:14 Build Finished (took 151ms)
+

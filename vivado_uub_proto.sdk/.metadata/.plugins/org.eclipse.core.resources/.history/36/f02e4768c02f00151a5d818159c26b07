@@ -1,0 +1,351 @@
+ /***************************************************************************/
+ /*
+ * @file xiicps_polled_master_example.c
+ *
+ * A design example of using the device in polled mode as master.
+ *
+ * The example uses buffer size 132. Please set the send buffer of the
+ * Aardvark device to be continuous 64 bytes from 0x00 to 0x3F.
+  *
+  **************************************************************************/
+ 
+ /***************************** Include Files ******************************/
+ #include "xparameters.h"
+ #include "xiicps.h"
+ 
+ /************************** Constant Definitions **************************/
+ 
+ /* The following constants map to the XPAR parameters created in the
+  * xparameters.h file. They are defined here such that a user can easily
+  * change all the needed parameters in one place. */
+ #define IIC_DEVICE_ID    XPAR_XIICPS_0_DEVICE_ID
+ 
+ #define IIC_SLAVE_CDCEL913    0x65 /* The slave address Clock generator */
+ #define IIC_SLAVE_SI5347      0x6C /* The slave address Cleaner Jitter */
+ #define IIC_SCLK_RATE       100000 /* tansfert frequency */
+ #define BUFFER_SIZE             40 /* Tansmit and receive buffer size */
+ #define RCV_BUFFER_SIZE        256 /* Tansmit and receive buffer size */
+ 
+ /**************************** Type Definitions ****************************/
+ 
+ /************************** Variable Definitions **************************/
+ 
+ XIicPs Iic;    /* Instance of the IIC Device */
+ 
+ /* The following buffers are used to send and receive data with the IIC. */
+ /* Buffer for Transmitting Data */
+ static u8 SendBuffer[BUFFER_SIZE] = {0x00,0x20,
+                                      0x01,0x00,0xB4,0x01,0x02,0x50,0x40,0x00,
+                                      0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                                      0x00,0x00,0x00,0x00,0x6D,0x02,0x00,0x00,
+                                      0x99,0x03,0x32,0x68,0x00,0x40,0x02,0x08};
+ static u8 RecvBuffer[RCV_BUFFER_SIZE] = {0x00}; /* Buffer for Receiving Data */
+ static u8 SendBuffer0[4]   = {0x01,0x0B};
+ static u8 SendBuffer1[5]   = {0x24,0xD8,0x00};
+ static u8 SendBuffer2[4]   = {0x01,0x00};                // 2
+ static u8 SendBuffer3[180] = {0x0B,                      // 173
+                               0x6C,0x00,0x00,0x00,0x00,
+                               0x00,0x00,0x00,0x00,0x00,0x00,0x0F,0x1C,0xEE,0xEE,0xEF,0x00,0x00,0x00,0x00,0x00,
+                               0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x0A,0x01,0x01,0x39,0x00,
+                               0x00,0x00,0x00,0x00,0x00,0x00,0x39,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x11,
+                               0x04,0x0D,0x00,0x00,0x00,0x0C,0x32,0x00,0x00,0x00,0x32,0x00,0x00,0x00,0x05,0x00,
+                               0x00,0x03,0x00,0x00,0x00,0x03,0x00,0x00,0x00,0x03,0x00,0x00,0x40,0x01,0x00,0x00,
+                               0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                               0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                               0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                               0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x01,0x00,0x00,0x00,0x04,0x00,
+                               0x02,0x00,0x01,0xEE,0x97,0x09,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                               0x00,0x00,0x00,0x00,0x00,0x00,0x00};
+ static u8 SendBuffer4[4]   = {0x01,0x01};                // 2
+ static u8 SendBuffer5[70]  = {0x02,                      // 66
+                               0x01,0x00,0x00,0x00,0x00,0x00,0x02,0x09,0x3D,0x00,0x01,0x00,0x00,0x00,
+                               0x00,0x00,0x02,0x09,0x3D,0x00,0x01,0x02,0x09,0x3D,0x00,0x01,0x02,0x09,0x3D,0x00,
+                               0x01,0x00,0x00,0x00,0x00,0x00,0x02,0x09,0x3D,0x00,0x01,0x02,0x09,0x3D,0x00,0x01,
+                               0x01,0x09,0x3B,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x01,0x09,0x3B,0x00,0x00,0x00,
+                               0x00,0x40,0xFF};
+ static u8 SendBuffer6[4]   = {0x01,0x02};                // 2
+ static u8 SendBuffer7[120] = {0x02,                      // 114
+                               0x00,0x00,0x00,0x00,0x00,0x00,0x3C,0x00,0x00,0x00,0x00,0x00,0x01,0x00,
+                               0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                               0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                               0x00,0x03,0x03,0x03,0x03,0x00,0x00,0x00,0x00,0x94,0x00,0x00,0x00,0x00,0x80,0x00,
+                               0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x02,0x00,0x00,0x00,0x00,0x00,
+                               0x02,0x00,0x00,0x02,0x00,0x00,0x02,0x00,0x00,0x00,0x00,0x00,0x02,0x00,0x00,0x02,
+                               0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x30,0x00,0x00,0x00,0x00,
+                               0x00,0x00,0x00};
+ static u8 SendBuffer8[4]   = {0x01,0x03};                // 2
+ static u8 SendBuffer9[86]  = {0x02,                      // 82
+                               0x00,0x00,0x00,0x80,0x12,0x00,0x00,0x00,0x00,0xF0,0x00,0x00,0x00,0x00,
+                               0x80,0x00,0x00,0x00,0x00,0x00,0x80,0x00,0x00,0x00,0x00,0x80,0x00,0x00,0x00,0x00,
+                               0x00,0x80,0x00,0x00,0x00,0x00,0x80,0x00,0x00,0x00,0x00,0x00,0x80,0x00,0x00,0x00,
+                               0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                               0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                               0x00,0x00,0x00};
+ static u8 SendBuffer10[4]   = {0x01,0x04};                // 2
+ static u8 SendBuffer11[60]  = {0x02,                      // 57
+                                0x01,0x00,0x00,0x00,0x00,0x00,0x10,0x1F,0x0C,0x0B,0x03,0x3F,0x10,0x21,
+                                0x0C,0x0B,0x03,0x3F,0x00,0x00,0x00,0x00,0x00,0xB4,0x00,0x00,0x00,0x00,0x00,0x80,
+                                0x00,0x23,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x01,0x0F,0x03,0x19,0x19,
+                                0x00,0x00,0x42,0x03,0x00,0x00,0x0C,0x00,0x01,0x00};
+ static u8 SendBuffer12[4]   = {0x01,0x05};                // 2
+ static u8 SendBuffer13[60]  = {0x02,                      // 57
+                                0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                                0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x80,0x00,0x00,0x00,0x00,0x00,0x00,0x80,
+                                0x00,0x23,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x01,0x01,0x0F,0x03,0x00,0x00,
+                                0x00,0x00,0x00,0x04,0x00,0x00,0x0E,0x00,0x00,0x00 };
+ static u8 SendBuffer14[4]   = {0x01,0x06};                // 2
+ static u8 SendBuffer15[60]  = {0x02,                      // 57
+                                0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                                0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x80,0x00,0x00,0x00,0x00,0x00,0x00,0x80,
+                                0x00,0x23,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x01,0x0F,0x03,0x00,0x00,
+                                0x00,0x00,0x00,0x04,0x00,0x00,0x0E,0x00,0x00,0x00};
+ static u8 SendBuffer16[4]   = {0x01,0x07};                // 2
+ static u8 SendBuffer17[62]  = {0x02,                      // 58
+                                0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                                0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x80,0x00,0x00,0x00,0x00,0x00,0x00,
+                                0x80,0x00,0x23,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x01,0x0F,0x03,0x00,
+                                0x00,0x00,0x00,0x00,0x04,0x00,0x00,0x0E,0x00,0x00,0x00 };
+ static u8 SendBuffer18[4]   = {0x01,0x09};                // 2
+ static u8 SendBuffer19[66]  = {0x0E,                      // 62
+                                0x02,0x00,
+                                0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                                0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                                0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+                                0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x01,0x01};
+ static u8 SendBuffer20[4]   = {0x01,0x0A};                // 2
+ static u8 SendBuffer21[8]   = {0x03,                      // 04
+                                0x01,0x0E,0x01};
+ static u8 SendBuffer22[4]   = {0x01,0x0B};                // 2
+ static u8 SendBuffer23[12]  = {0x44,                      // 08
+                                0xFF,0x0E,0x00,0x00,0x0E,0x00,0x0E};
+ static u8 SendBuffer24[4]   = {0x01,0x04};                // 2
+ static u8 SendBuffer25[4]   = {0x14,                      // 02
+                                0x01};
+ static u8 SendBuffer26[4]   = {0x01,0x00};                // 2
+ static u8 SendBuffer27[5]   = {0x1C,                      // 02
+                                0x01};
+ static u8 SendBuffer28[4]   = {0x01,0x0B};                // 2
+ static u8 SendBuffer29[5]   = {0x24,                      // 03
+                                0xDB,0x02};
+ 
+ /*************************************************************************
+ *
+ * This function sends data and expects to receive data from slave as modular
+ * of 64.
+ *
+ * This function uses interrupt-driven mode of the device.
+ *
+ * @param DeviceId is the Device ID of the IicPs Device and is the
+ *    XPAR_<IICPS_instance>_DEVICE_ID value from xparameters.h
+ *
+ * @return  XST_SUCCESS if successful, otherwise XST_FAILURE.
+ *
+ * @note    None.
+ *
+ **************************************************************************/
+
+ int IicPsInitClockGenerator(u16 DeviceId)
+ {
+  int Status;
+  XIicPs_Config *Config;
+//  int Index;
+ 
+  /* Initialize the IIC driver so that it's ready to use Look up the 
+   * configuration in the config table, then initialize it. */
+  Config = XIicPs_LookupConfig(DeviceId);
+  if (NULL == Config) { return XST_FAILURE; }
+ 
+  Status = XIicPs_CfgInitialize(&Iic, Config, Config->BaseAddress);
+  if (Status != XST_SUCCESS) { return XST_FAILURE; }
+ 
+  /* Perform a self-test to ensure that the hardware was built correctly. */
+  Status = XIicPs_SelfTest(&Iic);
+  if (Status != XST_SUCCESS) { return XST_FAILURE; }
+ 
+  /* Set the IIC serial clock rate. */
+  XIicPs_SetSClk(&Iic, IIC_SCLK_RATE);
+/*  XIicPs_SetOptions(&Iic, XIICPS_REP_START_OPTION); */
+ 
+  /* Send the buffer using the IIC and ignore the number of bytes sent
+   * as the return value since we are using it in interrupt mode. */
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+
+   Status = XIicPs_MasterSendPolled(&Iic, SendBuffer,34, IIC_SLAVE_CDCEL913);
+   if (Status != XST_SUCCESS) { return XST_FAILURE; }
+
+  /********************************************/  
+  /*     initialisation du Cleaner jitter     */
+  /********************************************/  
+  
+//  print("\r\n Initialisation de ... Cleaner Jitter : DEBUT \r\n ");
+//  Status = XIicPs_MasterRecvPolled(&Iic, RecvBuffer,10, IIC_SLAVE_SI5347);
+//   if (Status != XST_SUCCESS)
+//   { print("   Reception bank 0 : error \r\n"); }
+//   else
+//   { print("   Reception bank 0 : OK \r\n");  }
+
+   /* Initialisation en page 0xB */
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer0,2, IIC_SLAVE_SI5347);
+//   while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+//   Status = XIicPs_MasterRecvPolled(&Iic, RecvBuffer,10, IIC_SLAVE_SI5347);
+  if (Status != XST_SUCCESS)
+  { print("\r\n Initialisation de ... I2C clock 1 : non "); }
+  else
+  { print("\r\n Initialisation de ... I2C clock 1 : oui ");  }
+
+
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer1,3, IIC_SLAVE_SI5347);
+  if (Status != XST_SUCCESS)
+   { print("\r\n Initialisation de ... I2C clock 2 : non "); }
+   else
+   { print("\r\n Initialisation de ... I2C clock 2 : oui ");  }
+
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer2,2, IIC_SLAVE_SI5347);
+  if (Status != XST_SUCCESS)
+   { print("\r\n Initialisation de ... I2C clock 3 : non "); }
+   else
+   { print("\r\n Initialisation de ... I2C clock 3 : oui ");  }
+
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer3,173, IIC_SLAVE_SI5347);
+  if (Status != XST_SUCCESS)
+   { print("\r\n Initialisation de ... I2C clock 4 : non "); }
+   else
+   { print("\r\n Initialisation de ... I2C clock 4 : oui ");  }
+
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer4,2, IIC_SLAVE_SI5347);
+  if (Status != XST_SUCCESS)
+   { print("\r\n Initialisation de ... I2C clock 5 : non "); }
+   else
+   { print("\r\n Initialisation de ... I2C clock 5 : oui ");  }
+
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer5,66, IIC_SLAVE_SI5347);
+  if (Status != XST_SUCCESS)
+   { print("\r\n Initialisation de ... I2C clock 6 : non "); }
+   else
+   { print("\r\n Initialisation de ... I2C clock 6 : oui ");  }
+
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer6,2, IIC_SLAVE_SI5347);
+  if (Status != XST_SUCCESS)
+   { print("\r\n Initialisation de ... I2C clock 7 : non "); }
+   else
+   { print("\r\n Initialisation de ... I2C clock 7 : oui ");  }
+
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer7,114, IIC_SLAVE_SI5347);
+  if (Status != XST_SUCCESS)
+   { print("\r\n Initialisation de ... I2C clock 8 : non "); }
+   else
+   { print("\r\n Initialisation de ... I2C clock 8 : oui ");  }
+
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer8,2, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer9,82, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer10,2, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer11,57, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer12,2, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer13,57, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer14,2, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer15,57, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer16,2, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer17,58, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer18,2, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer19,62, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer20,2, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer21,4, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer22,2, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer23,8, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer24,2, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer25,2, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer26,2, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer27,2, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer28,2, IIC_SLAVE_SI5347);
+  while (XIicPs_BusIsBusy(&Iic)) { /* NOP */ }
+  Status = XIicPs_MasterSendPolled(&Iic, SendBuffer29,3, IIC_SLAVE_SI5347);
+ 
+  XIicPs_MasterSendPolled(&Iic, SendBuffer2,2, IIC_SLAVE_SI5347);  // passage en page 0
+  XIicPs_MasterRecvPolled(&Iic, RecvBuffer,16, IIC_SLAVE_SI5347);  // lecture de la bank 0
+  print("\r\n Valeur C : %1 \r\n ", *RecvBuffer + 12);
+  print("\r\n Valeur D : %1 \r\n ", *RecvBuffer + 13);
+  print("\r\n Valeur E : %1 \r\n ", *RecvBuffer + 14);
+
+  return XST_SUCCESS;
+ }
+
+
+//  /*****************************************************************************/
+//  /* This function prepares a device to transfers as a master.
+//  *
+//  * @param	InstancePtr is a pointer to the XIicPs instance.
+//  *
+//  * @param	Role specifies whether the device is sending or receiving.
+//  *
+//  * @return  - XST_SUCCESS if everything went well.
+//  *		    - XST_FAILURE if bus is busy.
+//  *
+//  * @note	Interrupts are always disabled, device which needs to use
+//  *		    interrupts needs to setup interrupts after this call.
+//  *
+//  ****************************************************************************/
+//  static int XIicPs_MasterSetup(XIicPs *InstancePtr, int Role)
+//  {
+//  	u32 ControlReg;
+//  	u32 BaseAddr;
+//  	u32 EnabledIntr = 0x0;
+// 
+//  	Xil_AssertNonvoid(InstancePtr != NULL);
+// 
+//  	BaseAddr = InstancePtr->Config.BaseAddress;
+//  	ControlReg = XIicPs_ReadReg(BaseAddr, XIICPS_CR_OFFSET);
+// 
+//  	/* Only check if bus is busy when repeated start option is not set. */
+//  	if ((ControlReg & XIICPS_CR_HOLD_MASK) == 0)
+//  	{
+//  		if (XIicPs_BusIsBusy(InstancePtr)) { return XST_FAILURE; }
+//  	}
+// 
+//  	/* Set up master, AckEn, nea and also clear fifo. */
+//  	ControlReg |= XIICPS_CR_ACKEN_MASK | XIICPS_CR_CLR_FIFO_MASK |
+//  		 	XIICPS_CR_NEA_MASK | XIICPS_CR_MS_MASK;
+// 
+//  	if (Role == RECVING_ROLE) {
+//  		ControlReg |= XIICPS_CR_RD_WR_MASK;
+//  		EnabledIntr = XIICPS_IXR_DATA_MASK |XIICPS_IXR_RX_OVR_MASK;
+//  	}else {
+//  		ControlReg &= ~XIICPS_CR_RD_WR_MASK;
+//  	}
+//  	EnabledIntr |= XIICPS_IXR_COMP_MASK | XIICPS_IXR_ARB_LOST_MASK;
+// 
+//  	XIicPs_WriteReg(BaseAddr, XIICPS_CR_OFFSET, ControlReg);
+// 
+//  	XIicPs_DisableAllInterrupts(BaseAddr);
+// 
+//  	return XST_SUCCESS;
+//  }
+//  

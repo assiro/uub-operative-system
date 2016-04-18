@@ -1,0 +1,50 @@
+19:07:52 **** Auto Build of configuration Debug for project adc ****
+make all 
+'Building file: ../src/adc.c'
+'Invoking: ARM Linux gcc compiler'
+arm-xilinx-linux-gnueabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/adc.o" -MMD -MP -MF"src/adc.d" -MT"src/adc.d" -o "src/adc.o" "../src/adc.c"
+../src/adc.c: In function 'main':
+../src/adc.c:58:2: warning: too many arguments for format [-Wformat-extra-args]
+  printf("GPIO access through /dev/mem.\n", page_size);
+  ^
+../src/adc.c:74:4: warning: implicit declaration of function 'usage' [-Wimplicit-function-declaration]
+    usage();
+    ^
+../src/adc.c:55:8: warning: unused variable 'ptr' [-Wunused-variable]
+  void *ptr;
+        ^
+../src/adc.c:54:22: warning: unused variable 'page_offset' [-Wunused-variable]
+  unsigned page_addr, page_offset;
+                      ^
+../src/adc.c:54:11: warning: unused variable 'page_addr' [-Wunused-variable]
+  unsigned page_addr, page_offset;
+           ^
+../src/adc.c:52:6: warning: variable 'value' set but not used [-Wunused-but-set-variable]
+  int value = 0;
+      ^
+../src/adc.c:49:6: warning: unused variable 'fd' [-Wunused-variable]
+  int fd;
+      ^
+../src/adc.c: At top level:
+../src/adc.c:146:6: warning: conflicting types for 'usage'
+ void usage(void)
+      ^
+../src/adc.c:74:4: note: previous implicit declaration of 'usage' was here
+    usage();
+    ^
+'Finished building: ../src/adc.c'
+' '
+'Building target: adc.elf'
+'Invoking: ARM Linux gcc linker'
+arm-xilinx-linux-gnueabi-gcc  -o "adc.elf"  ./src/adc.o   
+'Finished building target: adc.elf'
+' '
+'Invoking: ARM Linux Print Size'
+arm-xilinx-linux-gnueabi-size adc.elf  |tee "adc.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   2072	    372	     16	   2460	    99c	adc.elf
+'Finished building: adc.elf.size'
+' '
+
+19:07:58 Build Finished (took 6s.105ms)
+
