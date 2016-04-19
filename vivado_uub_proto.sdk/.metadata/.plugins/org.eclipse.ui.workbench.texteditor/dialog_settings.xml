@@ -2,20 +2,32 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
+<<<<<<< HEAD
 		<item value="filename" key="selection"/>
+=======
+		<item value="" key="selection"/>
+>>>>>>> 2beaa5130f425292206b0f1e5bde86633226516b
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+<<<<<<< HEAD
 			<item value="filename"/>
 			<item value="close"/>
+=======
+>>>>>>> 2beaa5130f425292206b0f1e5bde86633226516b
 			<item value="gpio_addr"/>
 			<item value="stop_trig"/>
 			<item value="hv_voltage_setting"/>
 			<item value="pagezize"/>
 			<item value="u16 device"/>
 			<item value="IicPsMasterPolledExample"/>
+<<<<<<< HEAD
+=======
+			<item value="0x42000000"/>
+			<item value="2000"/>
+>>>>>>> 2beaa5130f425292206b0f1e5bde86633226516b
 		</list>
 		<list key="replacehistory">
 		</list>

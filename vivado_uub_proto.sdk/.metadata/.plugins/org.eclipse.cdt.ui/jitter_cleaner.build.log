@@ -1,6 +1,45 @@
-01:09:18 **** Incremental Build of configuration Debug for project jitter_cleaner ****
+06:04:03 **** Build of configuration Debug for project jitter_cleaner ****
 make all 
-make: Nothing to be done for `all'.
+'Building file: ../src/jitter_cleaner.c'
+'Invoking: ARM Linux gcc compiler'
+arm-xilinx-linux-gnueabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/jitter_cleaner.o" -MMD -MP -MF"src/jitter_cleaner.d" -MT"src/jitter_cleaner.d" -o "src/jitter_cleaner.o" "../src/jitter_cleaner.c"
+../src/jitter_cleaner.c: In function 'main':
+../src/jitter_cleaner.c:142:4: warning: implicit declaration of function 'exit' [-Wimplicit-function-declaration]
+    exit(1);
+    ^
+../src/jitter_cleaner.c:142:4: warning: incompatible implicit declaration of built-in function 'exit'
+../src/jitter_cleaner.c:145:2: warning: implicit declaration of function 'ioctl' [-Wimplicit-function-declaration]
+  if (ioctl(file, I2C_SLAVE, addr) < 0) {
+  ^
+../src/jitter_cleaner.c:146:4: warning: incompatible implicit declaration of built-in function 'exit'
+    exit(2);
+    ^
+../src/jitter_cleaner.c:149:2: warning: implicit declaration of function 'write' [-Wimplicit-function-declaration]
+  write(file, set, sizeof(set)); // Hard reset generated
+  ^
+../src/jitter_cleaner.c:150:2: warning: implicit declaration of function 'usleep' [-Wimplicit-function-declaration]
+  usleep (500); //RITARDO DA SOSTITUIRE CON LETTURA DEVICE READY
+  ^
+../src/jitter_cleaner.c:164:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+../src/jitter_cleaner.c: In function 'IsJitterCleanerReady':
+../src/jitter_cleaner.c:180:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+'Finished building: ../src/jitter_cleaner.c'
+' '
+'Building target: jitter_cleaner.elf'
+'Invoking: ARM Linux gcc linker'
+arm-xilinx-linux-gnueabi-gcc  -o "jitter_cleaner.elf"  ./src/jitter_cleaner.o   
+'Finished building target: jitter_cleaner.elf'
+' '
+'Invoking: ARM Linux Print Size'
+arm-xilinx-linux-gnueabi-size jitter_cleaner.elf  |tee "jitter_cleaner.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   1987	   1884	     12	   3883	    f2b	jitter_cleaner.elf
+'Finished building: jitter_cleaner.elf.size'
+' '
 
-01:09:19 Build Finished (took 227ms)
+06:04:04 Build Finished (took 950ms)
 

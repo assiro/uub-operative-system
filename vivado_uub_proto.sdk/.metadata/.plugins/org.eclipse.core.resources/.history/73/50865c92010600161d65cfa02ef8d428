@@ -1,0 +1,73 @@
+// High voltage control - written by Roberto Assiro 19/04/2016
+// this program cans work on Lecce's UUB only
+// DAC LTC2637 under zynq manage - I2C on microcontroller bypassed
+// /dev i2ccdetect -y -r 1
+#include <fcntl.h>
+#include <stdio.h>
+#include <linux/i2c-dev.h>
+#include <unistd.h>
+#include <sys/mman.h>
+#include <stdlib.h>
+#define DAC_ADDR		0x65 // DAC slave address DAC LTC2637
+int file;
+int hv;
+
+int main(int argc, char *argv[])
+{
+	printf("argomento=  %d\s",argv);
+	if (argc == 1) {
+		 hv - 0;
+		 printf("Default High Voltage value %d\n",hv);
+	}
+	else if (argc < 1 || argc > 3){
+		usage();
+		exit;
+	}
+	else {
+		hv = atoi (argv[1]);
+		printf("High Voltage value %d\n",hv);
+	}
+
+	int fd, file,i,j, Status, data_trig;
+	int int_trig =  0x41200000;
+	int value = 0;
+	unsigned page_addr, page_offset;
+	void *ptrt;
+	unsigned page_size=sysconf(_SC_PAGESIZE);
+	page_offset = 16;
+	char buf[]={0x02,0x73,0x50};
+	char filename[20];
+
+   	printf("Initialization of I2C HV DAC..... ");
+	snprintf(filename, 19, "/dev/i2c-1");
+	file = open(filename, O_RDWR);
+	if (file < 0) {
+			exit("no open I2C");
+	}
+	if (ioctl(file, I2C_SLAVE, DAC_ADDR) < 0) {
+			exit("Fail to setup slave addr!");
+	}
+
+
+
+	hv = hv * 1.92;		//CAEN power suplv
+	//	hv = hv * 4.05;		//roberto power suplv
+	// Preparo i byte da inviare
+		buf[0] = 0x3F;	//Seleziono tutti i canali del DAC e invio comando scrittura
+		buf[1] = (hv/16); //primi 8 bit piu' significativi di val
+		buf[2] = (hv&0xFF)*16;
+
+     	if (write(file, buf, sizeof(buf)) != sizeof(buf)) {
+     	    exit(3);
+     	}
+     	printf("Done!\n");
+     	printf("ATTENTION! High Voltage is ON... ");
+}
+
+void usage(void)
+{
+	printf("|    pmt_hv <value>         |\n");
+	printf("|    example: pmt_hv 1000   |\n");
+	exit(1);
+}
+

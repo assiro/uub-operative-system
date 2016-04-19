@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Webtalk v2015.2 (64-bit)
+# SW Build 1266856 on Fri Jun 26 16:35:25 MDT 2015
+# 
+<<<<<<< HEAD
+# Start of session at: Fri Apr 15 17:55:26 2016
+# Process ID: 21180
+=======
+# Start of session at: Mon Apr 04 13:16:31 2016
+# Process ID: 8256
+>>>>>>> 2beaa5130f425292206b0f1e5bde86633226516b
+# Log file: C:/Xilinx/Vivado/2015.2/progetti/uub_assiro_nitz/uub_proto/vivado_uub_proto.sdk/webtalk/webtalk.log
+# Journal file: C:/Xilinx/Vivado/2015.2/progetti/uub_assiro_nitz/uub_proto/vivado_uub_proto.sdk/webtalk\webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

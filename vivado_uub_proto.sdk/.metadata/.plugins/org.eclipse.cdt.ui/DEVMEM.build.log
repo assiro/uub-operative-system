@@ -1,6 +1,25 @@
-09:05:14 **** Incremental Build of configuration Debug for project DEVMEM ****
+06:03:59 **** Build of configuration Debug for project DEVMEM ****
 make all 
-make: Nothing to be done for `all'.
+'Building file: ../src/devmem.c'
+'Invoking: ARM Linux gcc compiler'
+arm-xilinx-linux-gnueabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/devmem.o" -MMD -MP -MF"src/devmem.d" -MT"src/devmem.d" -o "src/devmem.o" "../src/devmem.c"
+../src/devmem.c: In function 'main':
+../src/devmem.c:36:2: warning: too many arguments for format [-Wformat-extra-args]
+  printf("GPIO access through /dev/mem.\n", page_size);
+  ^
+'Finished building: ../src/devmem.c'
+' '
+'Building target: DEVMEM.elf'
+'Invoking: ARM Linux gcc linker'
+arm-xilinx-linux-gnueabi-gcc  -o "DEVMEM.elf"  ./src/devmem.o   
+'Finished building target: DEVMEM.elf'
+' '
+'Invoking: ARM Linux Print Size'
+arm-xilinx-linux-gnueabi-size DEVMEM.elf  |tee "DEVMEM.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   2672	    328	      8	   3008	    bc0	DEVMEM.elf
+'Finished building: DEVMEM.elf.size'
+' '
 
-09:05:14 Build Finished (took 151ms)
+06:04:00 Build Finished (took 1s.7ms)
 

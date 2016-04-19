@@ -1,4 +1,4 @@
-13:13:47 **** Auto Build of configuration Debug for project scope ****
+10:05:14 **** Auto Build of configuration Debug for project scope ****
 make all 
 'Building file: ../src/scope.c'
 'Invoking: ARM Linux gcc compiler'
@@ -52,5 +52,5 @@ arm-xilinx-linux-gnueabi-size scope.elf  |tee "scope.elf.size"
 'Finished building: scope.elf.size'
 ' '
 
-13:13:48 Build Finished (took 999ms)
+10:05:15 Build Finished (took 1s.60ms)
 

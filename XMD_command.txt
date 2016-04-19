@@ -1,0 +1,29 @@
+COMMAND SEQUENCE FROM SDK XMD to charge a program or image in DDR and run under zynq
+
+OPEN XMD CONSOLE
+############################# XMD SEQUENCE ################################
+connect arm hw
+
+source C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/linux_uub_assiro/ps7_init.tcl
+
+ps7_init
+
+fpga -f C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/linux_uub_assiro/zynq_design_wrapper.bit
+
+dow C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/linux_uub_assiro/u-boot.elf
+
+con        to run u-boot
+
+
+
+############################################################################
+
+
+not used binary data can be downloaded to memory.
+
+
+dow -data C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/linux_uub_assiro/image.ub 0x520000
+
+
+
+

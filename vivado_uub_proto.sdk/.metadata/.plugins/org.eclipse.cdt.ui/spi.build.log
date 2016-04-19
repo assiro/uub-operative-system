@@ -1,25 +1,85 @@
-17:55:32 **** Auto Build of configuration Debug for project spi ****
+06:04:06 **** Build of configuration Debug for project spi ****
 make all 
 'Building file: ../src/spi.c'
 'Invoking: ARM Linux gcc compiler'
 arm-xilinx-linux-gnueabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/spi.o" -MMD -MP -MF"src/spi.d" -MT"src/spi.d" -o "src/spi.o" "../src/spi.c"
+../src/spi.c:2:1: error: expected identifier or '(' before '<<' token
+ <<<<<<< HEAD
+ ^
+../src/spi.c:10:1: error: expected identifier or '(' before '==' token
+ =======
+ ^
+../src/spi.c:17:9: error: invalid suffix "beaa5130f425292206b0f1e5bde86633226516b" on integer constant
+ >>>>>>> 2beaa5130f425292206b0f1e5bde86633226516b
+         ^
+In file included from c:\xilinx\sdk\2015.2\gnu\arm\nt\arm-xilinx-linux-gnueabi\libc\usr\include\stdlib.h:314:0,
+                 from ../src/spi.c:20:
+c:\xilinx\sdk\2015.2\gnu\arm\nt\arm-xilinx-linux-gnueabi\libc\usr\include\sys\types.h:33:9: error: unknown type name '__u_char'
+ typedef __u_char u_char;
+         ^
+../src/spi.c:24:1: error: expected identifier or '(' before '<<' token
+ <<<<<<< HEAD
+ ^
+../src/spi.c:27:9: error: invalid suffix "beaa5130f425292206b0f1e5bde86633226516b" on integer constant
+ >>>>>>> 2beaa5130f425292206b0f1e5bde86633226516b
+         ^
+../src/spi.c:33:1: error: expected identifier or '(' before '<<' token
+ <<<<<<< HEAD
+ ^
+../src/spi.c:36:9: error: invalid suffix "beaa5130f425292206b0f1e5bde86633226516b" on integer constant
+ >>>>>>> 2beaa5130f425292206b0f1e5bde86633226516b
+         ^
+../src/spi.c:47:1: error: expected identifier or '(' before '<<' token
+ <<<<<<< HEAD
+ ^
+../src/spi.c:51:9: error: invalid suffix "beaa5130f425292206b0f1e5bde86633226516b" on integer constant
+ >>>>>>> 2beaa5130f425292206b0f1e5bde86633226516b
+         ^
+../src/spi.c:57:1: error: expected identifier or '(' before '<<' token
+ <<<<<<< HEAD
+ ^
 ../src/spi.c: In function 'main':
-../src/spi.c:103:1: warning: control reaches end of non-void function [-Wreturn-type]
+../src/spi.c:80:42: error: 'mode' undeclared (first use in this function)
+        ret = ioctl(fd, SPI_IOC_WR_MODE, &mode);
+                                          ^
+../src/spi.c:80:42: note: each undeclared identifier is reported only once for each function it appears in
+../src/spi.c:110:22: error: 'ADC_LVDS' undeclared (first use in this function)
+        if (write(fd, ADC_LVDS, sizeof(ADC_LVDS)) != sizeof(ADC_LVDS)) {
+                      ^
+../src/spi.c:125:1: error: expected expression before '==' token
+ =======
+ ^
+../src/spi.c:133:14: error: invalid storage class for function 'pabort'
+  static void pabort(const char *s)
+              ^
+../src/spi.c:140:5: warning: 'main' is normally a non-static function [-Wmain]
+ int main ()
+     ^
+../src/spi.c: In function 'main':
+../src/spi.c:212:9: warning: passing argument 1 of 'exit' makes integer from pointer without a cast
+         exit("Can't open device!");
+         ^
+In file included from ../src/spi.c:20:0:
+c:\xilinx\sdk\2015.2\gnu\arm\nt\arm-xilinx-linux-gnueabi\libc\usr\include\stdlib.h:543:13: note: expected 'int' but argument is of type 'char *'
+ extern void exit (int __status) __THROW __attribute__ ((__noreturn__));
+             ^
+../src/spi.c:238:1: error: expected expression before '>>' token
+ >>>>>>> 2beaa5130f425292206b0f1e5bde86633226516b
+ ^
+../src/spi.c:238:9: error: invalid suffix "beaa5130f425292206b0f1e5bde86633226516b" on integer constant
+ >>>>>>> 2beaa5130f425292206b0f1e5bde86633226516b
+         ^
+../src/spi.c: In function 'main':
+../src/spi.c:240:1: error: expected declaration or statement at end of input
  }
  ^
-'Finished building: ../src/spi.c'
-' '
-'Building target: spi.elf'
-'Invoking: ARM Linux gcc linker'
-arm-xilinx-linux-gnueabi-gcc  -o "spi.elf"  ./src/spi.o   
-'Finished building target: spi.elf'
-' '
-'Invoking: ARM Linux Print Size'
-arm-xilinx-linux-gnueabi-size spi.elf  |tee "spi.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-   2540	    388	     12	   2940	    b7c	spi.elf
-'Finished building: spi.elf.size'
-' '
+../src/spi.c:130:18: warning: unused variable 'delay' [-Wunused-variable]
+  static uint16_t delay;
+                  ^
+../src/spi.c:240:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [src/spi.o] Error 1
 
-17:55:33 Build Finished (took 1s.6ms)
+06:04:07 Build Finished (took 450ms)
 

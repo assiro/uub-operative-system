@@ -3,12 +3,12 @@
   <Processor Endianness="Little" InstPath="zynq_design_i/ZYNC_block/processing_system7_0">
     <AddressSpace Name="zynq_design_i_ZYNC_block_processing_system7_0.zynq_design_i_WP5_data_blok_axi_bram_ctrl_0" Begin="1073741824" End="1073750015">
       <BusBlock>
-        <BitLane MemType="RAMB32" Placement="X0Y9">
+        <BitLane MemType="RAMB32" Placement="X2Y17">
           <DataWidth MSB="15" LSB="0"/>
           <AddressRange Begin="0" End="2047"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X0Y8">
+        <BitLane MemType="RAMB32" Placement="X2Y18">
           <DataWidth MSB="31" LSB="16"/>
           <AddressRange Begin="0" End="2047"/>
           <Parity ON="false" NumBits="0"/>
@@ -17,12 +17,60 @@
     </AddressSpace>
     <AddressSpace Name="zynq_design_i_ZYNC_block_processing_system7_0.zynq_design_i_WP1_ADC_CONTROL_axi_bram_ctrl_1" Begin="1107296256" End="1107312639">
       <BusBlock>
-        <BitLane MemType="RAMB32" Placement="X1Y3">
+        <BitLane MemType="RAMB32" Placement="X0Y8">
           <DataWidth MSB="7" LSB="0"/>
           <AddressRange Begin="0" End="4095"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X2Y5">
+        <BitLane MemType="RAMB32" Placement="X1Y8">
+          <DataWidth MSB="15" LSB="8"/>
+          <AddressRange Begin="0" End="4095"/>
+          <Parity ON="false" NumBits="0"/>
+        </BitLane>
+        <BitLane MemType="RAMB32" Placement="X2Y8">
+          <DataWidth MSB="23" LSB="16"/>
+          <AddressRange Begin="0" End="4095"/>
+          <Parity ON="false" NumBits="0"/>
+        </BitLane>
+        <BitLane MemType="RAMB32" Placement="X1Y9">
+          <DataWidth MSB="31" LSB="24"/>
+          <AddressRange Begin="0" End="4095"/>
+          <Parity ON="false" NumBits="0"/>
+        </BitLane>
+      </BusBlock>
+    </AddressSpace>
+    <AddressSpace Name="zynq_design_i_ZYNC_block_processing_system7_0.zynq_design_i_WP1_ADC_CONTROL_axi_bram_ctrl_2" Begin="1140850688" End="1140867071">
+      <BusBlock>
+        <BitLane MemType="RAMB32" Placement="X1Y5">
+          <DataWidth MSB="7" LSB="0"/>
+          <AddressRange Begin="0" End="4095"/>
+          <Parity ON="false" NumBits="0"/>
+        </BitLane>
+        <BitLane MemType="RAMB32" Placement="X0Y6">
+          <DataWidth MSB="15" LSB="8"/>
+          <AddressRange Begin="0" End="4095"/>
+          <Parity ON="false" NumBits="0"/>
+        </BitLane>
+        <BitLane MemType="RAMB32" Placement="X0Y5">
+          <DataWidth MSB="23" LSB="16"/>
+          <AddressRange Begin="0" End="4095"/>
+          <Parity ON="false" NumBits="0"/>
+        </BitLane>
+        <BitLane MemType="RAMB32" Placement="X1Y6">
+          <DataWidth MSB="31" LSB="24"/>
+          <AddressRange Begin="0" End="4095"/>
+          <Parity ON="false" NumBits="0"/>
+        </BitLane>
+      </BusBlock>
+    </AddressSpace>
+    <AddressSpace Name="zynq_design_i_ZYNC_block_processing_system7_0.zynq_design_i_WP1_ADC_CONTROL_axi_bram_ctrl_3" Begin="1174405120" End="1174421503">
+      <BusBlock>
+        <BitLane MemType="RAMB32" Placement="X2Y7">
+          <DataWidth MSB="7" LSB="0"/>
+          <AddressRange Begin="0" End="4095"/>
+          <Parity ON="false" NumBits="0"/>
+        </BitLane>
+        <BitLane MemType="RAMB32" Placement="X2Y6">
           <DataWidth MSB="15" LSB="8"/>
           <AddressRange Begin="0" End="4095"/>
           <Parity ON="false" NumBits="0"/>
@@ -32,55 +80,7 @@
           <AddressRange Begin="0" End="4095"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X1Y5">
-          <DataWidth MSB="31" LSB="24"/>
-          <AddressRange Begin="0" End="4095"/>
-          <Parity ON="false" NumBits="0"/>
-        </BitLane>
-      </BusBlock>
-    </AddressSpace>
-    <AddressSpace Name="zynq_design_i_ZYNC_block_processing_system7_0.zynq_design_i_WP1_ADC_CONTROL_axi_bram_ctrl_2" Begin="1140850688" End="1140867071">
-      <BusBlock>
-        <BitLane MemType="RAMB32" Placement="X0Y3">
-          <DataWidth MSB="7" LSB="0"/>
-          <AddressRange Begin="0" End="4095"/>
-          <Parity ON="false" NumBits="0"/>
-        </BitLane>
-        <BitLane MemType="RAMB32" Placement="X2Y2">
-          <DataWidth MSB="15" LSB="8"/>
-          <AddressRange Begin="0" End="4095"/>
-          <Parity ON="false" NumBits="0"/>
-        </BitLane>
-        <BitLane MemType="RAMB32" Placement="X0Y2">
-          <DataWidth MSB="23" LSB="16"/>
-          <AddressRange Begin="0" End="4095"/>
-          <Parity ON="false" NumBits="0"/>
-        </BitLane>
-        <BitLane MemType="RAMB32" Placement="X1Y2">
-          <DataWidth MSB="31" LSB="24"/>
-          <AddressRange Begin="0" End="4095"/>
-          <Parity ON="false" NumBits="0"/>
-        </BitLane>
-      </BusBlock>
-    </AddressSpace>
-    <AddressSpace Name="zynq_design_i_ZYNC_block_processing_system7_0.zynq_design_i_WP1_ADC_CONTROL_axi_bram_ctrl_3" Begin="1174405120" End="1174421503">
-      <BusBlock>
-        <BitLane MemType="RAMB32" Placement="X0Y4">
-          <DataWidth MSB="7" LSB="0"/>
-          <AddressRange Begin="0" End="4095"/>
-          <Parity ON="false" NumBits="0"/>
-        </BitLane>
-        <BitLane MemType="RAMB32" Placement="X1Y4">
-          <DataWidth MSB="15" LSB="8"/>
-          <AddressRange Begin="0" End="4095"/>
-          <Parity ON="false" NumBits="0"/>
-        </BitLane>
-        <BitLane MemType="RAMB32" Placement="X0Y1">
-          <DataWidth MSB="23" LSB="16"/>
-          <AddressRange Begin="0" End="4095"/>
-          <Parity ON="false" NumBits="0"/>
-        </BitLane>
-        <BitLane MemType="RAMB32" Placement="X1Y1">
+        <BitLane MemType="RAMB32" Placement="X2Y5">
           <DataWidth MSB="31" LSB="24"/>
           <AddressRange Begin="0" End="4095"/>
           <Parity ON="false" NumBits="0"/>
@@ -89,22 +89,22 @@
     </AddressSpace>
     <AddressSpace Name="zynq_design_i_ZYNC_block_processing_system7_0.zynq_design_i_WP1_ADC_CONTROL_axi_bram_ctrl_4" Begin="1207959552" End="1207975935">
       <BusBlock>
-        <BitLane MemType="RAMB32" Placement="X1Y6">
+        <BitLane MemType="RAMB32" Placement="X2Y11">
           <DataWidth MSB="7" LSB="0"/>
           <AddressRange Begin="0" End="4095"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X0Y5">
+        <BitLane MemType="RAMB32" Placement="X3Y12">
           <DataWidth MSB="15" LSB="8"/>
           <AddressRange Begin="0" End="4095"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X2Y7">
+        <BitLane MemType="RAMB32" Placement="X2Y12">
           <DataWidth MSB="23" LSB="16"/>
           <AddressRange Begin="0" End="4095"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X0Y6">
+        <BitLane MemType="RAMB32" Placement="X2Y13">
           <DataWidth MSB="31" LSB="24"/>
           <AddressRange Begin="0" End="4095"/>
           <Parity ON="false" NumBits="0"/>
@@ -113,22 +113,22 @@
     </AddressSpace>
     <AddressSpace Name="zynq_design_i_ZYNC_block_processing_system7_0.zynq_design_i_WP1_ADC_CONTROL_axi_bram_ctrl_5" Begin="1241513984" End="1241530367">
       <BusBlock>
-        <BitLane MemType="RAMB32" Placement="X3Y7">
+        <BitLane MemType="RAMB32" Placement="X4Y12">
           <DataWidth MSB="7" LSB="0"/>
           <AddressRange Begin="0" End="4095"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X3Y6">
+        <BitLane MemType="RAMB32" Placement="X4Y14">
           <DataWidth MSB="15" LSB="8"/>
           <AddressRange Begin="0" End="4095"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X2Y6">
+        <BitLane MemType="RAMB32" Placement="X4Y13">
           <DataWidth MSB="23" LSB="16"/>
           <AddressRange Begin="0" End="4095"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X3Y8">
+        <BitLane MemType="RAMB32" Placement="X5Y12">
           <DataWidth MSB="31" LSB="24"/>
           <AddressRange Begin="0" End="4095"/>
           <Parity ON="false" NumBits="0"/>
@@ -137,22 +137,66 @@
     </AddressSpace>
     <AddressSpace Name="zynq_design_i_ZYNC_block_processing_system7_0.zynq_design_i_Wp2_Trigger_block_axi_bram_ctrl_6" Begin="1275068416" End="1275101183">
       <BusBlock>
-        <BitLane MemType="RAMB32" Placement="X5Y5">
+        <BitLane MemType="RAMB32" Placement="X3Y7">
           <DataWidth MSB="7" LSB="4"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X4Y2">
+        <BitLane MemType="RAMB32" Placement="X3Y6">
           <DataWidth MSB="3" LSB="0"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X4Y3">
+        <BitLane MemType="RAMB32" Placement="X2Y3">
           <DataWidth MSB="15" LSB="12"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X5Y4">
+        <BitLane MemType="RAMB32" Placement="X3Y2">
+          <DataWidth MSB="11" LSB="8"/>
+          <AddressRange Begin="0" End="8191"/>
+          <Parity ON="false" NumBits="0"/>
+        </BitLane>
+        <BitLane MemType="RAMB32" Placement="X2Y2">
+          <DataWidth MSB="23" LSB="20"/>
+          <AddressRange Begin="0" End="8191"/>
+          <Parity ON="false" NumBits="0"/>
+        </BitLane>
+        <BitLane MemType="RAMB32" Placement="X3Y4">
+          <DataWidth MSB="19" LSB="16"/>
+          <AddressRange Begin="0" End="8191"/>
+          <Parity ON="false" NumBits="0"/>
+        </BitLane>
+        <BitLane MemType="RAMB32" Placement="X3Y5">
+          <DataWidth MSB="31" LSB="28"/>
+          <AddressRange Begin="0" End="8191"/>
+          <Parity ON="false" NumBits="0"/>
+        </BitLane>
+        <BitLane MemType="RAMB32" Placement="X3Y3">
+          <DataWidth MSB="27" LSB="24"/>
+          <AddressRange Begin="0" End="8191"/>
+          <Parity ON="false" NumBits="0"/>
+        </BitLane>
+      </BusBlock>
+    </AddressSpace>
+    <AddressSpace Name="zynq_design_i_ZYNC_block_processing_system7_0.zynq_design_i_Wp2_Trigger_block_axi_bram_ctrl_7" Begin="1308622848" End="1308655615">
+      <BusBlock>
+        <BitLane MemType="RAMB32" Placement="X3Y1">
+          <DataWidth MSB="7" LSB="4"/>
+          <AddressRange Begin="0" End="8191"/>
+          <Parity ON="false" NumBits="0"/>
+        </BitLane>
+        <BitLane MemType="RAMB32" Placement="X3Y0">
+          <DataWidth MSB="3" LSB="0"/>
+          <AddressRange Begin="0" End="8191"/>
+          <Parity ON="false" NumBits="0"/>
+        </BitLane>
+        <BitLane MemType="RAMB32" Placement="X5Y2">
+          <DataWidth MSB="15" LSB="12"/>
+          <AddressRange Begin="0" End="8191"/>
+          <Parity ON="false" NumBits="0"/>
+        </BitLane>
+        <BitLane MemType="RAMB32" Placement="X4Y6">
           <DataWidth MSB="11" LSB="8"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
@@ -162,56 +206,12 @@
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X4Y5">
+        <BitLane MemType="RAMB32" Placement="X4Y2">
           <DataWidth MSB="19" LSB="16"/>
-          <AddressRange Begin="0" End="8191"/>
-          <Parity ON="false" NumBits="0"/>
-        </BitLane>
-        <BitLane MemType="RAMB32" Placement="X5Y1">
-          <DataWidth MSB="31" LSB="28"/>
-          <AddressRange Begin="0" End="8191"/>
-          <Parity ON="false" NumBits="0"/>
-        </BitLane>
-        <BitLane MemType="RAMB32" Placement="X4Y4">
-          <DataWidth MSB="27" LSB="24"/>
-          <AddressRange Begin="0" End="8191"/>
-          <Parity ON="false" NumBits="0"/>
-        </BitLane>
-      </BusBlock>
-    </AddressSpace>
-    <AddressSpace Name="zynq_design_i_ZYNC_block_processing_system7_0.zynq_design_i_Wp2_Trigger_block_axi_bram_ctrl_7" Begin="1308622848" End="1308655615">
-      <BusBlock>
-        <BitLane MemType="RAMB32" Placement="X5Y10">
-          <DataWidth MSB="7" LSB="4"/>
-          <AddressRange Begin="0" End="8191"/>
-          <Parity ON="false" NumBits="0"/>
-        </BitLane>
-        <BitLane MemType="RAMB32" Placement="X5Y7">
-          <DataWidth MSB="3" LSB="0"/>
-          <AddressRange Begin="0" End="8191"/>
-          <Parity ON="false" NumBits="0"/>
-        </BitLane>
-        <BitLane MemType="RAMB32" Placement="X4Y10">
-          <DataWidth MSB="15" LSB="12"/>
-          <AddressRange Begin="0" End="8191"/>
-          <Parity ON="false" NumBits="0"/>
-        </BitLane>
-        <BitLane MemType="RAMB32" Placement="X4Y8">
-          <DataWidth MSB="11" LSB="8"/>
-          <AddressRange Begin="0" End="8191"/>
-          <Parity ON="false" NumBits="0"/>
-        </BitLane>
-        <BitLane MemType="RAMB32" Placement="X5Y2">
-          <DataWidth MSB="23" LSB="20"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
         <BitLane MemType="RAMB32" Placement="X4Y7">
-          <DataWidth MSB="19" LSB="16"/>
-          <AddressRange Begin="0" End="8191"/>
-          <Parity ON="false" NumBits="0"/>
-        </BitLane>
-        <BitLane MemType="RAMB32" Placement="X5Y6">
           <DataWidth MSB="31" LSB="28"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
@@ -225,42 +225,42 @@
     </AddressSpace>
     <AddressSpace Name="zynq_design_i_ZYNC_block_processing_system7_0.zynq_design_i_Wp2_Trigger_block_axi_bram_ctrl_8" Begin="1342177280" End="1342210047">
       <BusBlock>
-        <BitLane MemType="RAMB32" Placement="X4Y11">
+        <BitLane MemType="RAMB32" Placement="X4Y4">
           <DataWidth MSB="7" LSB="4"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X3Y11">
+        <BitLane MemType="RAMB32" Placement="X5Y4">
           <DataWidth MSB="3" LSB="0"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X3Y12">
+        <BitLane MemType="RAMB32" Placement="X4Y5">
           <DataWidth MSB="15" LSB="12"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X4Y12">
+        <BitLane MemType="RAMB32" Placement="X4Y8">
           <DataWidth MSB="11" LSB="8"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X4Y13">
+        <BitLane MemType="RAMB32" Placement="X5Y8">
           <DataWidth MSB="23" LSB="20"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X4Y15">
+        <BitLane MemType="RAMB32" Placement="X5Y5">
           <DataWidth MSB="19" LSB="16"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X4Y14">
+        <BitLane MemType="RAMB32" Placement="X4Y3">
           <DataWidth MSB="31" LSB="28"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X4Y9">
+        <BitLane MemType="RAMB32" Placement="X5Y6">
           <DataWidth MSB="27" LSB="24"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
@@ -269,42 +269,42 @@
     </AddressSpace>
     <AddressSpace Name="zynq_design_i_ZYNC_block_processing_system7_0.zynq_design_i_Wp2_Trigger_block_axi_bram_ctrl_9" Begin="1375731712" End="1375764479">
       <BusBlock>
-        <BitLane MemType="RAMB32" Placement="X5Y15">
+        <BitLane MemType="RAMB32" Placement="X4Y9">
           <DataWidth MSB="7" LSB="4"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X5Y16">
+        <BitLane MemType="RAMB32" Placement="X5Y10">
           <DataWidth MSB="3" LSB="0"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X5Y11">
+        <BitLane MemType="RAMB32" Placement="X3Y10">
           <DataWidth MSB="15" LSB="12"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X5Y12">
+        <BitLane MemType="RAMB32" Placement="X3Y8">
           <DataWidth MSB="11" LSB="8"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X5Y13">
+        <BitLane MemType="RAMB32" Placement="X5Y7">
           <DataWidth MSB="23" LSB="20"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X5Y14">
+        <BitLane MemType="RAMB32" Placement="X5Y9">
           <DataWidth MSB="19" LSB="16"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X5Y9">
+        <BitLane MemType="RAMB32" Placement="X4Y10">
           <DataWidth MSB="31" LSB="28"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>
         </BitLane>
-        <BitLane MemType="RAMB32" Placement="X5Y8">
+        <BitLane MemType="RAMB32" Placement="X4Y11">
           <DataWidth MSB="27" LSB="24"/>
           <AddressRange Begin="0" End="8191"/>
           <Parity ON="false" NumBits="0"/>

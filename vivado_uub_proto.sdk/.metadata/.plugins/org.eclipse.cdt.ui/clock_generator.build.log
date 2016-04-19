@@ -1,6 +1,41 @@
-01:09:18 **** Incremental Build of configuration Debug for project clock_generator ****
+06:04:02 **** Build of configuration Debug for project clock_generator ****
 make all 
-make: Nothing to be done for `all'.
+'Building file: ../src/clock_generator.c'
+'Invoking: ARM Linux gcc compiler'
+arm-xilinx-linux-gnueabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/clock_generator.o" -MMD -MP -MF"src/clock_generator.d" -MT"src/clock_generator.d" -o "src/clock_generator.o" "../src/clock_generator.c"
+../src/clock_generator.c: In function 'main':
+../src/clock_generator.c:23:4: warning: implicit declaration of function 'exit' [-Wimplicit-function-declaration]
+    exit(1);
+    ^
+../src/clock_generator.c:23:4: warning: incompatible implicit declaration of built-in function 'exit'
+../src/clock_generator.c:28:2: warning: implicit declaration of function 'ioctl' [-Wimplicit-function-declaration]
+  if (ioctl(file, I2C_SLAVE, addr) < 0) {
+  ^
+../src/clock_generator.c:29:4: warning: incompatible implicit declaration of built-in function 'exit'
+    exit(2);
+    ^
+../src/clock_generator.c:32:5: warning: implicit declaration of function 'write' [-Wimplicit-function-declaration]
+     if (write(file, buf, sizeof(buf)) != sizeof(buf)) {
+     ^
+../src/clock_generator.c:33:8: warning: incompatible implicit declaration of built-in function 'exit'
+        exit(3);
+        ^
+../src/clock_generator.c:37:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+'Finished building: ../src/clock_generator.c'
+' '
+'Building target: clock_generator.elf'
+'Invoking: ARM Linux gcc linker'
+arm-xilinx-linux-gnueabi-gcc  -o "clock_generator.elf"  ./src/clock_generator.o   
+'Finished building target: clock_generator.elf'
+' '
+'Invoking: ARM Linux Print Size'
+arm-xilinx-linux-gnueabi-size clock_generator.elf  |tee "clock_generator.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   1806	    312	      4	   2122	    84a	clock_generator.elf
+'Finished building: clock_generator.elf.size'
+' '
 
-01:09:18 Build Finished (took 211ms)
+06:04:03 Build Finished (took 957ms)
 

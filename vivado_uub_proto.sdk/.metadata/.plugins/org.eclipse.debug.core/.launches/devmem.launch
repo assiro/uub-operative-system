@@ -26,7 +26,7 @@
 <stringAttribute key="com.xilinx.sdk.tcf.debug.uitarget.peer" value="UUB"/>
 <booleanAttribute key="org.eclipse.tcf.debug.AttachChildren" value="true"/>
 <stringAttribute key="org.eclipse.tcf.debug.LocalProgramFile" value="Debug/DEVMEM.elf"/>
-<stringAttribute key="org.eclipse.tcf.debug.ProgramFile" value="/bin/DEVMEM.elf"/>
+<stringAttribute key="org.eclipse.tcf.debug.ProgramFile" value="/bin/DEVMEM"/>
 <stringAttribute key="org.eclipse.tcf.debug.ProjectName" value="DEVMEM"/>
 <booleanAttribute key="org.eclipse.tcf.debug.StopAtEntry" value="false"/>
 <booleanAttribute key="org.eclipse.tcf.debug.StopAtMain" value="false"/>

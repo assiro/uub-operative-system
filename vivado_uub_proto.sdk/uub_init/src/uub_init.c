@@ -178,7 +178,7 @@ int main ()
 {
 // UUB clock generatore initialization on I2C-1
 	int file, k;
-	int adapter_nr = 1; /* probably dynamically determined */
+	int adapter_nr = 1;
 	char filename[20];
 	printf("Initialization of I2C clock generator..... ");
 	snprintf(filename, 19, "/dev/i2c-%d", adapter_nr);

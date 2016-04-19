@@ -611,6 +611,7 @@ proc create_hier_cell_WP1_ADC_CONTROL { parentCell nameHier } {
   # Create pins
   create_bd_pin -dir O -from 119 -to 0 ADC_data
   create_bd_pin -dir O ASY_TRIG
+  create_bd_pin -dir O ENABLE_PPS
   create_bd_pin -dir I EXT_TRIG
   create_bd_pin -dir I FPGA_CK
   create_bd_pin -dir I -from 25 -to 0 adc0
@@ -618,6 +619,7 @@ proc create_hier_cell_WP1_ADC_CONTROL { parentCell nameHier } {
   create_bd_pin -dir I -from 25 -to 0 adc2
   create_bd_pin -dir I -from 25 -to 0 adc3
   create_bd_pin -dir I -from 25 -to 0 adc4
+  create_bd_pin -dir O -from 31 -to 0 gpio2_io_o
   create_bd_pin -dir I -type clk s_axi_aclk
   create_bd_pin -dir I -from 0 -to 0 -type rst s_axi_aresetn
 
@@ -646,7 +648,7 @@ proc create_hier_cell_WP1_ADC_CONTROL { parentCell nameHier } {
 
   # Create instance: axi_gpio_0, and set properties
   set axi_gpio_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0 ]
-  set_property -dict [ list CONFIG.C_ALL_INPUTS_2 {1} CONFIG.C_ALL_OUTPUTS {1} CONFIG.C_GPIO2_WIDTH {16} CONFIG.C_GPIO_WIDTH {8} CONFIG.C_IS_DUAL {0}  ] $axi_gpio_0
+  set_property -dict [ list CONFIG.C_ALL_INPUTS_2 {0} CONFIG.C_ALL_OUTPUTS {1} CONFIG.C_ALL_OUTPUTS_2 {1} CONFIG.C_GPIO2_WIDTH {32} CONFIG.C_GPIO_WIDTH {8} CONFIG.C_IS_DUAL {1}  ] $axi_gpio_0
 
   # Create instance: axi_gpio_1, and set properties
   set axi_gpio_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_1 ]
@@ -700,7 +702,9 @@ proc create_hier_cell_WP1_ADC_CONTROL { parentCell nameHier } {
   connect_bd_net -net WP1_ADC_Control_0_ADC_data [get_bd_pins ADC_data] [get_bd_pins WP1_ADC_Control_0/ADC_data]
   connect_bd_net -net WP1_ADC_Control_0_ASY_TRIG [get_bd_pins ASY_TRIG] [get_bd_pins WP1_ADC_Control_0/ASY_TRIG]
   connect_bd_net -net WP1_ADC_Control_0_BRAM_CK [get_bd_pins WP1_ADC_Control_0/BRAM_CK] [get_bd_pins blk_mem_gen_0/clka] [get_bd_pins blk_mem_gen_1/clka] [get_bd_pins blk_mem_gen_2/clka] [get_bd_pins blk_mem_gen_3/clka] [get_bd_pins blk_mem_gen_4/clka]
+  connect_bd_net -net WP1_ADC_Control_0_ENABLE_PPS [get_bd_pins ENABLE_PPS] [get_bd_pins WP1_ADC_Control_0/ENABLE_PPS]
   connect_bd_net -net WP1_ADC_Control_0_Stop_Addr [get_bd_pins WP1_ADC_Control_0/Stop_Addr] [get_bd_pins axi_gpio_1/gpio_io_i]
+  connect_bd_net -net axi_gpio_0_gpio2_io_o [get_bd_pins gpio2_io_o] [get_bd_pins axi_gpio_0/gpio2_io_o]
   connect_bd_net -net axi_gpio_0_gpio_io_o [get_bd_pins WP1_ADC_Control_0/Config_Trig] [get_bd_pins axi_gpio_0/gpio_io_o]
   connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins s_axi_aclk] [get_bd_pins axi_bram_ctrl_1/s_axi_aclk] [get_bd_pins axi_bram_ctrl_2/s_axi_aclk] [get_bd_pins axi_bram_ctrl_3/s_axi_aclk] [get_bd_pins axi_bram_ctrl_4/s_axi_aclk] [get_bd_pins axi_bram_ctrl_5/s_axi_aclk] [get_bd_pins axi_gpio_0/s_axi_aclk] [get_bd_pins axi_gpio_1/s_axi_aclk]
   connect_bd_net -net rst_processing_system7_0_97M_peripheral_aresetn [get_bd_pins s_axi_aresetn] [get_bd_pins WP1_ADC_Control_0/RSTn] [get_bd_pins axi_bram_ctrl_1/s_axi_aresetn] [get_bd_pins axi_bram_ctrl_2/s_axi_aresetn] [get_bd_pins axi_bram_ctrl_3/s_axi_aresetn] [get_bd_pins axi_bram_ctrl_4/s_axi_aresetn] [get_bd_pins axi_bram_ctrl_5/s_axi_aresetn] [get_bd_pins axi_gpio_0/s_axi_aresetn] [get_bd_pins axi_gpio_1/s_axi_aresetn] [get_bd_pins blk_mem_gen_0/rsta] [get_bd_pins blk_mem_gen_1/rsta] [get_bd_pins blk_mem_gen_2/rsta] [get_bd_pins blk_mem_gen_3/rsta] [get_bd_pins blk_mem_gen_4/rsta]
@@ -860,11 +864,12 @@ proc create_root_design { parentCell } {
   connect_bd_net -net Interface_uub_0_ec0_out [get_bd_ports ext0_ctl] [get_bd_pins Interface_uub_0/ext0_ctl]
   connect_bd_net -net Interface_uub_0_ec1_out [get_bd_ports ext1_ctl] [get_bd_pins Interface_uub_0/ext1_ctl]
   connect_bd_net -net Interface_uub_0_tp [get_bd_ports TP] [get_bd_pins Interface_uub_0/tp]
-  connect_bd_net -net LED_FLG_1 [get_bd_ports LED_FLG] [get_bd_pins WP1_LED_Control_0/ENABLE_PPS]
   connect_bd_net -net RADIO_RST_IN_1 [get_bd_ports RADIO_RST_IN] [get_bd_pins Interface_uub_0/RADIO_RST_IN]
   connect_bd_net -net TRIG_IN_1 [get_bd_ports TRIG_IN] [get_bd_pins Interface_uub_0/TRIG_IN] [get_bd_pins WP1_ADC_CONTROL/EXT_TRIG]
   connect_bd_net -net USB_IFAULT_1 [get_bd_ports USB_IFAULT] [get_bd_pins Interface_uub_0/USB_IFAULT]
   connect_bd_net -net WATCHDOG_1 [get_bd_ports WATCHDOG] [get_bd_pins Interface_uub_0/WATCHDOG]
+  connect_bd_net -net WP1_ADC_CONTROL_ENABLE_PPS [get_bd_pins WP1_ADC_CONTROL/ENABLE_PPS] [get_bd_pins WP1_LED_Control_0/ENABLE_PPS]
+  connect_bd_net -net WP1_ADC_CONTROL_gpio2_io_o [get_bd_pins WP1_ADC_CONTROL/gpio2_io_o] [get_bd_pins WP1_LED_Control_0/data_set]
   connect_bd_net -net WP1_ADC_Control_0_ADC_data [get_bd_pins WP1_ADC_CONTROL/ADC_data] [get_bd_pins Wp2_Trigger_block/ADC]
   connect_bd_net -net WP1_ADC_Control_0_ASY_TRIG [get_bd_pins WP1_ADC_CONTROL/ASY_TRIG] [get_bd_pins WP1_LED_Control_0/ASY_TRIG]
   connect_bd_net -net WP1_LED_Control_0_LED_OUT [get_bd_ports LED_ASY] [get_bd_pins Interface_uub_0/LED_FLG] [get_bd_pins WP1_LED_Control_0/LED_OUT]

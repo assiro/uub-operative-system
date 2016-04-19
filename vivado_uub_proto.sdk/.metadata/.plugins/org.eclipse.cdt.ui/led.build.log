@@ -1,61 +1,6 @@
-17:56:56 **** Auto Build of configuration Debug for project led ****
+11:16:51 **** Incremental Build of configuration Debug for project led ****
 make all 
-'Building file: ../src/led.c'
-'Invoking: ARM Linux gcc compiler'
-arm-xilinx-linux-gnueabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/led.o" -MMD -MP -MF"src/led.d" -MT"src/led.d" -o "src/led.o" "../src/led.c"
-../src/led.c: In function 'main':
-../src/led.c:24:3: warning: implicit declaration of function 'usage' [-Wimplicit-function-declaration]
-   usage();
-   ^
-../src/led.c:48:4: warning: passing argument 1 of 'exit' makes integer from pointer without a cast
-    exit("no open file");
-    ^
-In file included from ../src/led.c:7:0:
-c:\xilinx\sdk\2015.2\gnu\arm\nt\arm-xilinx-linux-gnueabi\libc\usr\include\stdlib.h:543:13: note: expected 'int' but argument is of type 'char *'
- extern void exit (int __status) __THROW __attribute__ ((__noreturn__));
-             ^
-../src/led.c:50:2: warning: implicit declaration of function 'ioctl' [-Wimplicit-function-declaration]
-  if (ioctl(file, I2C_SLAVE, DAC_ADDR) < 0) {
-  ^
-../src/led.c:51:4: warning: passing argument 1 of 'exit' makes integer from pointer without a cast
-    exit("Fail to setup slave addr!");
-    ^
-In file included from ../src/led.c:7:0:
-c:\xilinx\sdk\2015.2\gnu\arm\nt\arm-xilinx-linux-gnueabi\libc\usr\include\stdlib.h:543:13: note: expected 'int' but argument is of type 'char *'
- extern void exit (int __status) __THROW __attribute__ ((__noreturn__));
-             ^
-../src/led.c:34:28: warning: unused variable 'data_trig' [-Wunused-variable]
-  int fd, file,i,j, Status, data_trig;
-                            ^
-../src/led.c:34:20: warning: unused variable 'Status' [-Wunused-variable]
-  int fd, file,i,j, Status, data_trig;
-                    ^
-../src/led.c:34:17: warning: unused variable 'j' [-Wunused-variable]
-  int fd, file,i,j, Status, data_trig;
-                 ^
-../src/led.c:34:15: warning: unused variable 'i' [-Wunused-variable]
-  int fd, file,i,j, Status, data_trig;
-               ^
-../src/led.c: At top level:
-../src/led.c:106:6: warning: conflicting types for 'usage'
- void usage(void)
-      ^
-../src/led.c:24:3: note: previous implicit declaration of 'usage' was here
-   usage();
-   ^
-'Finished building: ../src/led.c'
-' '
-'Building target: led.elf'
-'Invoking: ARM Linux gcc linker'
-arm-xilinx-linux-gnueabi-gcc  -o "led.elf"  ./src/led.o   
-'Finished building target: led.elf'
-' '
-'Invoking: ARM Linux Print Size'
-arm-xilinx-linux-gnueabi-size led.elf  |tee "led.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-   3378	    328	     24	   3730	    e92	led.elf
-'Finished building: led.elf.size'
-' '
+make: Nothing to be done for `all'.
 
-17:56:57 Build Finished (took 1s.1ms)
+11:16:51 Build Finished (took 157ms)
 

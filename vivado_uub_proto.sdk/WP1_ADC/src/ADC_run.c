@@ -31,7 +31,7 @@
 
 #define IIC_DEVICE_ID		XPAR_PS7_I2C_0_DEVICE_ID
 #define IIC_SLAVE_ADDR		0x0C // DAC slave address DAC AD5316
-#define IIC_SLAVE2_ADDR		0x10 // DAC slave address DAC LTC2637
+#define IIC_SLAVE2_ADDR		0x65 // DAC slave address DAC LTC2637
 #define IIC_SCLK_RATE		100000
 #define BUFFER_SIZE	132
 #define true  1

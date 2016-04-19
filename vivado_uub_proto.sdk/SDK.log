@@ -14942,3 +14942,45 @@ Caused by: org.eclipse.rse.services.clientserver.messages.SystemOperationCancell
 15:00:46 WARN  : Linker script will not be updated automatically. Users need to update it manually.
 15:01:56 INFO  : Invoking Bootgen: bootgen -image uub.bif -o C:\Xilinx\Vivado\2015.2\progetti\PETALINUX\linux_uub_new\BOOT.bin -w on
 15:01:57 INFO  : Bootgen command execution is done.
+17:56:37 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1460994994278,  Project:1460984148756
+17:56:37 INFO  : Project zynq_design_wrapper_hw_platform_4's source hardware specification located at C:/Xilinx/Vivado/2015.2/progetti/uub_assiro_nitz/uub_proto/vivado_uub_proto.sdk/zynq_design_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+17:56:37 INFO  : Copied contents of C:/Xilinx/Vivado/2015.2/progetti/uub_assiro_nitz/uub_proto/vivado_uub_proto.sdk/zynq_design_wrapper.hdf into \zynq_design_wrapper_hw_platform_4\system.hdf.
+17:56:43 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+17:56:43 INFO  : Clearing existing target manager status.
+17:56:43 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+17:56:43 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+19:15:26 ERROR : Could not get the saved dialog settings. null
+06:13:53 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+07:07:19 INFO  : Launching XSDB server: xsdb.bat -s C:/Xilinx/SDK/2015.2/scripts/xsdb/xsdb/xsdb-server.tcl
+07:07:21 INFO  : Launching XSDB server: xsdb.bat -s C:/Xilinx/SDK/2015.2/scripts/xsdb/xsdb/xsdb-server.tcl
+07:07:22 INFO  : XSDB server has started successfully.
+07:07:22 INFO  : XSDB server has started successfully.
+07:07:23 INFO  : Processing command line option -hwspec C:/Xilinx/Vivado/2015.2/progetti/uub_assiro_nitz/uub_proto/vivado_uub_proto.sdk/zynq_design_wrapper.hdf.
+07:07:24 INFO  : Checking for hwspec changes in the project zynq_design_wrapper_hw_platform_4.
+07:07:27 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1461042393320,  Project:1460994994278
+07:07:27 INFO  : The hardware specification for project 'zynq_design_wrapper_hw_platform_4' is different from C:/Xilinx/Vivado/2015.2/progetti/uub_assiro_nitz/uub_proto/vivado_uub_proto.sdk/zynq_design_wrapper.hdf.
+07:07:27 INFO  : Copied contents of C:/Xilinx/Vivado/2015.2/progetti/uub_assiro_nitz/uub_proto/vivado_uub_proto.sdk/zynq_design_wrapper.hdf into \zynq_design_wrapper_hw_platform_4\system.hdf.
+07:07:32 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+07:07:32 INFO  : Clearing existing target manager status.
+07:07:33 WARN  : Unable to obtain port 2350 for use by XMD, java.net.SocketException: Unrecognized Windows Sockets error: 0: JVM_Bind
+07:07:33 WARN  : Unable to obtain port 2357 for use by XMD, java.net.SocketException: Unrecognized Windows Sockets error: 0: JVM_Bind
+07:07:33 WARN  : Unable to obtain port 2364 for use by XMD, java.net.SocketException: Unrecognized Windows Sockets error: 0: JVM_Bind
+07:07:35 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+07:07:35 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+07:10:40 ERROR : Could not get the saved dialog settings. null
+07:15:08 INFO  : Invoking Bootgen: bootgen -image uub.bif -o C:\Xilinx\Vivado\2015.2\progetti\PETALINUX\linux_uub_new\BOOT.bin -w on
+07:15:10 INFO  : Bootgen command execution is done.
+07:16:15 INFO  : Invoking Bootgen: bootgen -image uub.bif -o C:\Xilinx\Vivado\2015.2\progetti\PETALINUX\linux_uub_new\BOOT.bin
+07:16:16 INFO  : Bootgen command execution is done.
+10:35:43 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1461054879956,  Project:1461042393320
+10:35:43 INFO  : Project zynq_design_wrapper_hw_platform_4's source hardware specification located at C:/Xilinx/Vivado/2015.2/progetti/uub_assiro_nitz/uub_proto/vivado_uub_proto.sdk/zynq_design_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+10:35:43 INFO  : Copied contents of C:/Xilinx/Vivado/2015.2/progetti/uub_assiro_nitz/uub_proto/vivado_uub_proto.sdk/zynq_design_wrapper.hdf into \zynq_design_wrapper_hw_platform_4\system.hdf.
+10:35:48 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+10:35:48 INFO  : Clearing existing target manager status.
+10:35:48 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+10:35:48 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+10:37:00 INFO  : Invoking Bootgen: bootgen -image uub.bif -o C:\Xilinx\Vivado\2015.2\progetti\PETALINUX\linux_uub_new\BOOT.bin
+10:37:00 INFO  : Overwriting existing bif file C:\Xilinx\Vivado\2015.2\progetti\PETALINUX\linux_uub_new\uub.bif
+10:37:01 INFO  : Bootgen command execution is done.

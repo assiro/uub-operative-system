@@ -25,7 +25,7 @@
 <booleanAttribute key="com.xilinx.sdk.tcf.debug.uireset.system" value="false"/>
 <stringAttribute key="com.xilinx.sdk.tcf.debug.uitarget.peer" value="UUB"/>
 <booleanAttribute key="org.eclipse.tcf.debug.AttachChildren" value="true"/>
-<stringAttribute key="org.eclipse.tcf.debug.LocalProgramFile" value="Debug/uub_init.elf"/>
+<stringAttribute key="org.eclipse.tcf.debug.LocalProgramFile" value="Debug/uub_init"/>
 <stringAttribute key="org.eclipse.tcf.debug.ProgramFile" value="/bin/uub_init"/>
 <stringAttribute key="org.eclipse.tcf.debug.ProjectName" value="uub_init"/>
 <booleanAttribute key="org.eclipse.tcf.debug.StopAtEntry" value="false"/>
