@@ -1,6 +1,6 @@
-# PETALINUX distribution for UUB by LECCE WP1
+# Firmware distribution for UUB by LECCE WP1
 
-UUB Firmware distribution (not official version)
+UUB Petalinux System and applications (not official distribution)
 
 This version of linux for zynq 7020 is developed from vivado project dedicated for UUB.
 
