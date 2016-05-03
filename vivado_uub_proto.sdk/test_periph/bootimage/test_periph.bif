@@ -1,6 +1,0 @@
-the_ROM_image:
-{
-	[bootloader]Z:\cao-projets\SPB16X\lagorio\Auger\HDL_Auger\uub_proto\vivado_uub_proto.sdk\FSBL\Debug\FSBL.elf
-	Z:\cao-projets\SPB16X\lagorio\Auger\HDL_Auger\uub_proto\vivado_uub_proto.sdk\zynq_design_wrapper_hw_platform_1\zynq_design_wrapper.bit
-	Z:\cao-projets\SPB16X\lagorio\Auger\HDL_Auger\uub_proto\vivado_uub_proto.sdk\test_periph\Debug\test_periph.elf
-}

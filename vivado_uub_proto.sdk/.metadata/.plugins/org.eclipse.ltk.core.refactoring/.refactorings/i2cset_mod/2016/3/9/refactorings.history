@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;i2cset_mod/src/helloworld.c&apos; to &apos;i2cset.c&apos;" description="Rename resource &apos;helloworld.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/helloworld.c" name="i2cset.c" stamp="1456936190975" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;i2cset_mod/src/a.h&apos; to &apos;smbus.h&apos;" description="Rename resource &apos;a.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/a.h" name="smbus.h" stamp="1456936257143" updateReferences="true"/>
-</session>

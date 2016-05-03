@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;spi2/src/helloworld.c&apos; to &apos;spi2&apos;" description="Rename resource &apos;helloworld.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/helloworld.c" name="spi2" stamp="1458299367987" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;spi2/src/spi2&apos; to &apos;spi2.c&apos;" description="Rename resource &apos;spi2&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/spi2" name="spi2.c" stamp="1458299378123" updateReferences="true"/>
-</session>

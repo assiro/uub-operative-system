@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;test_periph/src/init_xspipss_ADC.c&apos; to &apos;init_xspips_ADC.c&apos;" description="Rename resource &apos;init_xspipss_ADC.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/init_xspipss_ADC.c" name="init_xspips_ADC.c" stamp="1446738407668" updateReferences="true"/>
-</session>

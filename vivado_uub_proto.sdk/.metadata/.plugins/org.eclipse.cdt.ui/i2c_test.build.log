@@ -1,6 +1,0 @@
-23:06:38 **** Incremental Build of configuration Debug for project i2c_test ****
-make all 
-make: *** No rule to make target `src/i2c_test.o', needed by `i2c_test.elf'.  Stop.
-
-23:06:39 Build Finished (took 339ms)
-

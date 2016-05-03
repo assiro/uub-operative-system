@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<section name="Workbench">
-	<item value="C:\Xilinx\Vivado\2015.2\progetti\linux_uub_assiro" key="dump_restore_files_selection"/>
-	<item value="C:\Xilinx\Vivado\2015.2\progetti\PETALINUX\linux_uub_new" key="bootgen_files_selection"/>
-	<item value="C:\Xilinx\Vivado\2015.2\progetti\uub_assiro\uub_proto\vivado_uub_proto.sdk\UUB_init\src" key="tcf_linux_app_selection"/>
-	<item value="C:\Xilinx\Vivado\2015.2\progetti\petalinux_uub\images\linux" key="zynq_flash_files_selection"/>
-	<item value="C:\Xilinx\Vivado\2015.2\progetti\PETALINUX\linux_uub_new" key="last_stored_selection"/>
-</section>

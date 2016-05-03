@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;UUB_init/src/UUB_init.c&apos; to &apos;uub_init.c&apos;" description="Rename resource &apos;UUB_init.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/UUB_init.c" name="uub_init.c" stamp="1458309974397" updateReferences="true"/>
-</session>

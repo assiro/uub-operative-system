@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;clock_generator/src/helloworld.c&apos; to &apos;clock_generator.c&apos;" description="Rename resource &apos;helloworld.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/helloworld.c" name="clock_generator.c" stamp="1457383431756" updateReferences="true"/>
-</session>
