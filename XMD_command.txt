@@ -4,13 +4,13 @@ OPEN XMD CONSOLE
 ############################# XMD SEQUENCE ################################
 connect arm hw
 
-source C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/linux_uub_assiro/ps7_init.tcl
+fpga -f C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/linux_uub/zynq_design_wrapper.bit
+
+source C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/linux_uub/ps7_init.tcl
 
 ps7_init
 
-fpga -f C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/linux_uub_assiro/zynq_design_wrapper.bit
-
-dow C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/linux_uub_assiro/u-boot.elf
+dow C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/linux_uub/u-boot.elf
 
 con        to run u-boot
 
@@ -23,6 +23,230 @@ not used binary data can be downloaded to memory.
 
 
 dow -data C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/linux_uub_assiro/image.ub 0x520000
+
+
+######################################## allison ############################
+
+
+fpga -f C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/linux_uub/zynq_design_wrapper.bit
+
+dow C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/fsbl_uboot_allison/zynq_fsbl_JTAG.elf
+
+dow C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/fsbl_uboot_allison/u-boot.elf
+
+
+
+
+
+###################################### UBOOT HELP #############################################
+autoload=no
+baudrate=115200
+boot_img=BOOT.BIN
+bootcmd=run default_bootcmd
+bootdelay=4
+bootenvsize=0x20000
+bootenvstart=0x40000
+bootsize=0x40000
+bootstart=0x0
+clobstart=0x01000000
+console=console=ttyPS0,115200
+cp_kernel2ram=sf probe 0 && sf read ${netstart} ${kernelstart} ${kernelsize}
+default_bootcmd=run cp_kernel2ram && bootm ${netstart}
+dtbnetstart=0x02800000
+eraseenv=sf probe 0 && sf erase ${bootenvstart} ${bootenvsize}
+ethact=Gem.e000b000
+ethaddr=00:0a:35:00:22:01
+fault=echo ${img} image size is greater than allocated place - partition ${img} is NOT UPDATED
+fileaddr=10000000
+filesize=e25acc
+gatewayip=172.16.254.254
+hostname=uub_assiro
+install_boot=sf probe 0 && sf erase ${bootstart} ${bootsize} && sf write ${clobstart} ${bootstart} ${filesize}
+install_kernel=sf probe 0 && sf erase ${kernelstart} ${kernelsize} && sf write ${clobstart} ${kernelstart} ${filesize}
+ipaddr=172.16.17.223
+kernel_img=image.ub
+kernelsize=0x600000
+kernelstart=0x60000
+load_boot=tftp ${clobstart} ${boot_img}
+load_kernel=tftp ${clobstart} ${kernel_img}
+loadaddr=0x01000000
+nc=setenv stdout nc;setenv stdin nc;
+netboot=tftp ${netstart} ${kernel_img} && bootm
+netstart=0x01000000
+psserial0=setenv stdout ttyPS0;setenv stdin ttyPS0
+serial=setenv stdout serial;setenv stdin serial
+serverip=172.16.17.198
+test_crc=if imi ${clobstart}; then run test_img; else echo ${img} Bad CRC - ${img} is NOT UPDATED; fi
+test_img=setenv var "if test ${filesize} -gt ${psize}; then run fault; else run ${installcmd}; fi"; run var; setenv var
+update_boot=setenv img boot; setenv psize ${bootsize}; setenv installcmd "install_boot"; run load_boot test_img; setenv img; setenv psize; setenv installcmd
+update_kernel=setenv img kernel; setenv psize ${kernelsize}; setenv installcmd "install_kernel"; run load_kernel test_crc; setenv img; setenv psize; setenv installcmd
+
+
+
+
+
+
+
+
+###################################### UBOOT ALLISON HELP #############################################
+
+autoload=no
+baudrate=9600
+boot_img=BOOT.BIN
+bootcmd=run default_bootcmd
+bootdelay=4
+bootsize=0x800000
+bootstart=0x0
+clobstart=0x01000000
+console=console=ttyPS1,9600
+dtb_img=system.dtb
+dtbnetstart=0x02800000
+ethact=Gem.e000b000
+fault=echo ${img} image size is greater than allocated place - partition ${img} is NOT UPDATED
+gatewayip=192.168.0.1
+hostname=uub-1
+install_boot=sf probe 0 && sf erase ${bootstart} ${bootsize} && sf write ${clobstart} ${bootstart} ${filesize}
+ipaddr=192.168.0.10
+kernel_img=image.ub
+load_boot=tftp ${clobstart} ${boot_img}
+load_dtb=tftp ${clobstart} ${dtb_img}
+loadaddr=0x01000000
+mtddevname=qspi-fsbl-uboot
+mtddevnum=0
+mtdids=nor0=spi32764.0
+mtdparts=mtdparts=spi32764.0:2m(qspi-fsbl-uboot),24m(qspi-ubi-itb),102m(qspi-ubi-rootfs)
+nc=setenv stdout nc;setenv stdin nc;
+netboot=tftp ${netstart} ${kernel_img} && bootm
+netmask=255.255.255.0
+netstart=0x01000000
+partition=nor0,0
+psserial0=setenv stdout ttyPS0;setenv stdin ttyPS0
+psserial1=setenv stdout ttyPS1;setenv stdin ttyPS1
+serial=setenv stdout serial;setenv stdin serial
+serverip=192.168.71.128
+test_crc=if imi ${clobstart}; then run test_img; else echo ${img} Bad CRC - ${img} is NOT UPDATED; fi
+test_img=setenv var "if test ${filesize} -gt ${psize}; then run fault; else run ${installcmd}; fi"; run var; setenv var
+update_boot=setenv img boot; setenv psize ${bootsize}; setenv installcmd "install_boot"; run load_boot test_img; setenv img; setenv psize; setenv installcmd
+update_dtb=setenv img dtb; setenv psize ${dtbsize}; setenv installcmd "install_dtb"; run load_dtb test_img; setenv img; setenv psize; setenv installcmd
+
+
+
+ ######################################### PROCEDURA CREAZIONE SISTEMA UBI nella flash della UUB ############################################################ 
+
+dopo aver caricato fsbl e uboot modificati tramite XMD
+
+cancello memoria flash da uboot : 
+sf probe  
+sf erase 0x0 0x10000000        la flash ha 10000000 locazioni (bit)
+
+creazione partizioni u-boot-env1 e u-boot-env2 :
+ubi create u-boot-env1 0xff80
+ubi create u-boot-env2 0xff80
+ubi create itbs 0x1794300
+
+
+set ethaddr 00:0a:35:00:22:01 && set serverip 172.16.17.198 && set ipaddr 172.16.17.223
+
+saveenv
+
+saveenv			There are 2 copies of the U-Boot environment in flash, so this updates both of them.
+
+
+
+
+############### CARICAMENTO PETALINUX SU UUB ########################
+
+io procedo mediante tftp e non tramite jtag
+
+run netboot		PARTE PETALINUX
+
+configurazione network
+
+modificare file interfaces:
+cd /etc/network
+vi interfaces		variare da static a dhcp e salvare
+
+service networking restart
+
+
+cd /var/ftp
+caricare mediante tftp il file BOOT.BIN dalla macchina vituale ubuntu
+
+tftp -g -l BOOT.BIN -r BOOT.BIN 172.16.17.198
+
+caricare mediante tftp il file image.ub dalla macchina vituale ubuntu
+
+tftp -g -l image.ub -r image.ub 172.16.17.198
+
+tftp -g -l zynq_design_wrapper.bit -r zynq_design_wrapper.bit 172.16.17.198
+
+flash_erase /dev/mtd1 0 0
+
+flash_erase /dev/mtd2 0 0
+
+flashcp BOOT.BIN /dev/mtd1
+
+ubiattach -p /dev/mtd2
+
+ubimkvol /dev/ubi0 -N itbs -m
+
+mount -t ubifs ubi0:itbs /boot
+
+cp image.ub /boot
+
+cp zynq_design_wrapper.bit /boot
+
+sync
+
+
+
+
+
+
+
+U-Boot-PetaLinux> printenv
+autoload=no
+baudrate=9600
+boot_img=BOOT.BIN
+bootcmd=run default_bootcmd
+bootdelay=4
+bootsize=0x800000
+
+bootstart=0x0
+
+clobstart=0x01000000
+console=console=ttyPS1,9600
+dtb_img=system.dtb
+dtbnetstart=0x02800000
+ethact=Gem.e000b000
+fault=echo ${img} image size is greater than allocated place - partition ${img} is NOT UPDATED
+hostname=uub-1
+
+install_boot=sf probe 0 && sf erase ${bootstart} ${bootsize} && sf write ${clobstart} ${bootstart} ${filesize}
+
+ipaddr=192.168.0.10
+kernel_img=image.ub
+load_boot=tftp ${clobstart} ${boot_img}
+load_dtb=tftp ${clobstart} ${dtb_img}
+loadaddr=0x01000000
+mtdparts=mtdparts=spi32764.0:2m(qspi-fsbl-uboot),24m(qspi-ubi-itb),102m(qspi-ubi-rootfs)
+nc=setenv stdout nc;setenv stdin nc;
+netboot=tftp ${netstart} ${kernel_img} && bootm
+netmask=255.255.255.0
+
+netstart=0x01000000
+
+psserial0=setenv stdout ttyPS0;setenv stdin ttyPS0
+psserial1=setenv stdout ttyPS1;setenv stdin ttyPS1
+serial=setenv stdout serial;setenv stdin serial
+serverip=192.168.71.128
+
+test_crc=if imi ${clobstart}; then run test_img; else echo ${img} Bad CRC - ${img} is NOT UPDATED; fi
+test_img=setenv var "if test ${filesize} -gt ${psize}; then run fault; else run ${installcmd}; fi"; run var; setenv var
+
+update_boot=setenv img boot; setenv psize ${bootsize}; setenv installcmd "install_boot"; run load_boot test_img; setenv img; setenv psize; setenv installcmd
+update_dtb=setenv img dtb; setenv psize ${dtbsize}; setenv installcmd "install_dtb"; run load_dtb test_img; setenv img; setenv psize; setenv installcmd
+
 
 
 
