@@ -19,3 +19,5 @@ WP2 Trigger implemented on FPGA but not tested under petalinux (need software)
 More info to: http://elettronica.le.infn.it/?page_id=898
 
 For any questions: roberto.assiro@le.infn.it
+login: root
+passwd: auger
