@@ -20,5 +20,9 @@ More info to: http://elettronica.le.infn.it/?page_id=898
 
 login: root - passwd: auger
 
+New trigger on threshold from petalinux management
+
+UBI system is developing
+
 For any questions: roberto.assiro@le.infn.it
 

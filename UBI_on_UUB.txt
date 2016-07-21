@@ -1,0 +1,85 @@
+#######################################################################################
+######################################## UBI SYSTEM ON UUB ############################
+caricamento FSBL e UBOOT DA XMD CONSOLE
+
+fpga -f C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/linux_uub/zynq_design_wrapper.bit
+
+dow C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/fsbl_uboot_allison/zynq_fsbl_JTAG.elf
+
+dow C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/fsbl_uboot_allison/u-boot.elf
+
+con # per lanciare uboot
+
+
+################# DA UBOOT #################
+
+cancello memoria flash da uboot : 
+sf probe  
+sf erase 0x10000000        la flash ha 10000000 locazioni (bit)
+
+set ethaddr 00:0a:35:00:22:01 && set serverip 172.16.17.198 && set ipaddr 172.16.17.223
+
+run netboot
+
+################# DA PETALINUX #################
+
+vi /etc/network/interfaces		variare da static a dhcp e salvare
+
+/etc/init.d/networking restart
+
+cd /var/ftp
+
+tftp -g -l BOOT.BIN -r BOOT.BIN 172.16.17.198	caricare mediante tftp il file BOOT.BIN dalla macchina vituale ubuntu
+
+flash_erase /dev/mtd1 0 0
+
+flashcp BOOT.BIN /dev/mtd1
+
+############################################
+RESETTO RIPARTENDO DA FLASH - riparte fsbl e uboot contenuti in BOOT.BIN da MTD1
+
+################# DA UBOOT #################
+
+set ethaddr 00:0a:35:00:22:01 && set serverip 172.16.17.198 && set ipaddr 172.16.17.223
+
+creazione partizioni u-boot-env1 e u-boot-env2 :
+ubi create u-boot-env1 0xff80
+ubi create u-boot-env2 0xff80
+?????ubi create itbs 0x1794300
+
+ubi info l # per avere elenco partizioni
+
+saveenv
+saveenv			There are 2 copies of the U-Boot environment in flash, so this updates both of them.
+
+############### CARICAMENTO PETALINUX SU UUB ########################
+
+run netboot		PARTE PETALINUX
+
+vi /etc/network/interfaces	modificare file interfaces:	variare da static a dhcp e salvare
+
+/etc/init.d/networking restart
+
+cd /var/ftp
+
+tftp -g -l image.ub -r image.ub 172.16.17.198	caricare mediante tftp il file image.ub dalla macchina vituale ubuntu
+
+tftp -g -l zynq_design_wrapper.bit -r zynq_design_wrapper.bit 172.16.17.198
+
+
+
+flash_erase /dev/mtd2 0 0
+
+ubiattach -p /dev/mtd2
+
+ubimkvol /dev/ubi0 -N itbs -m
+
+mount -t ubifs ubi0:itbs /boot
+
+
+cp image.ub /boot
+
+
+cp zynq_design_wrapper.bit /boot
+
+sync
