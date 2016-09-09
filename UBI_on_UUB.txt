@@ -1,27 +1,42 @@
 #######################################################################################
 ######################################## UBI SYSTEM ON UUB ############################
+Procedura per creare le partizioni ed i volumi nella flash memory della UUB
 caricamento FSBL e UBOOT DA XMD CONSOLE
 
-fpga -f C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/linux_uub/zynq_design_wrapper.bit
+connect arm hw
 
-dow C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/fsbl_uboot_allison/zynq_fsbl_JTAG.elf
+fpga -f C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/fsbl_uboot_allison/fpga.bit
 
-dow C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/fsbl_uboot_allison/u-boot.elf
+dow C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/fsbl_uboot_allison/zynq_fsbl_JTAG.elf ... (fsbl provvisorio solo per la fase iniziale con uso della jtag)
 
-con # per lanciare uboot
+con
 
+stop
+
+dow C:/Xilinx/Vivado/2015.2/progetti/PETALINUX/fsbl_uboot_allison/u-boot-allison2.elf
+
+con o run .... per lanciare uboot
 
 ################# DA UBOOT #################
 
 cancello memoria flash da uboot : 
 sf probe  
-sf erase 0x10000000        la flash ha 10000000 locazioni (bit)
+sf erase qspi-ubi-itb 0x1800000   ...    to erase flash partition
 
-set ethaddr 00:0a:35:00:22:01 && set serverip 172.16.17.198 && set ipaddr 172.16.17.223
+ubi part qspi-ubi-itb
 
-run netboot
+ubi create u-boot-env1 0xFF80 s
 
-################# DA PETALINUX #################
+ubi create u-boot-env2 0xFF80 s
+
+ubi create itbs 0x1794300
+
+set ethaddr 00:0a:35:00:1e:53 && set serverip 172.16.17.198 && set ipaddr 193.206.152.13
+
+run netboot ... per lanciare petalinux mediante tftp da macchina virtuale (lancera' file image.ub)
+
+
+################# COMANDI DA PETALINUX per copiare il file BOOT.BIN nella partizione dedicata MTD1 (partizione bootloader) #################
 
 vi /etc/network/interfaces		variare da static a dhcp e salvare
 
@@ -40,18 +55,17 @@ RESETTO RIPARTENDO DA FLASH - riparte fsbl e uboot contenuti in BOOT.BIN da MTD1
 
 ################# DA UBOOT #################
 
-set ethaddr 00:0a:35:00:22:01 && set serverip 172.16.17.198 && set ipaddr 172.16.17.223
+set ethaddr 00:0a:35:00:1e:53 && set serverip 172.16.17.198 && set ipaddr 193.206.152.13
 
 creazione partizioni u-boot-env1 e u-boot-env2 :
-ubi create u-boot-env1 0xff80
-ubi create u-boot-env2 0xff80
+ubi create u-boot-env1 0xff80 s
+ubi create u-boot-env2 0xff80 s
 ?????ubi create itbs 0x1794300
 
 ubi info l # per avere elenco partizioni
 
 saveenv
-saveenv			There are 2 copies of the U-Boot environment in flash, so this updates both of them.
-
+saveenv			There are 2 copies of the U-Boot environment in flash, so this updates both of th
 ############### CARICAMENTO PETALINUX SU UUB ########################
 
 run netboot		PARTE PETALINUX
@@ -64,22 +78,106 @@ cd /var/ftp
 
 tftp -g -l image.ub -r image.ub 172.16.17.198	caricare mediante tftp il file image.ub dalla macchina vituale ubuntu
 
-tftp -g -l zynq_design_wrapper.bit -r zynq_design_wrapper.bit 172.16.17.198
+tftp -g -l fpga.bit -r fpga.bit 172.16.17.198
 
+		non fare...		flash_erase /dev/mtd2 0 0	oppure 	ubiformat /dev/mtd2
 
-
-flash_erase /dev/mtd2 0 0
-
-ubiattach -p /dev/mtd2
-
-ubimkvol /dev/ubi0 -N itbs -m
+ubiattach -p /dev/mtd2		ubidetach -p /dev/mtd2
 
 mount -t ubifs ubi0:itbs /boot
 
 
-cp image.ub /boot
+cp image.ub /boot	
 
-
-cp zynq_design_wrapper.bit /boot
+cp fpga.bit /boot
 
 sync
+
+umount /boot
+
+
+** CREO VOLUMI in petalinux non fare se creati da UBOOT (alternativa in fase di creazione)**
+ubimkvol /dev/ubi0 --name=u-boot-env1 --size=200000 --type=dynamic
+ubimkvol /dev/ubi0 --name=u-boot-env2 --size=200000 --type=dynamic
+ubimkvol /dev/ubi0 -N iubi tbs -m			ubimkvol /dev/ubi0 --name=itbs --type=dynamic -m
+*************************************************************************************************************
+
+
+################################### UBOOT ##############################
+
+set default_bootcmd "ubifsmount ubi0:itbs && ubifsload 0x1000000 fpga.bit && fpga loadb 0 0x1000000 0x3dbafc && ubifsmount ubi0:itbs && ubifsload ${loadaddr} image.ub && bootm"
+
+comando globale:
+
+set mtdparts "mtdparts=spi32764.0:2m(qspi-fsbl-uboot),24m(qspi-ubi-itb),102m(qspi-ubi-rootfs)" && set default_bootcmd "ubifsmount ubi0:itbs && ubifsload ${loadaddr} image.ub && bootm" && set ethaddr 00:0a:35:00:1e:53 && set serverip 172.16.17.198 && set ipaddr 193.206.152.13 && sf probe && mtdparts && saveenv && saveenv
+
+
+run bootcmd
+
+
+
+############################  CLONARE FLASH  ############################
+da petalinux su board con memoria definita:
+creare 2 file in cartella tftpboot mediante touch mtd1.img e mtd2.img
+td2.img
+questa procedura non funziona !!!! i 2 file immagine non vengono fusi bene!
+
+dd if=/dev/mtd1 of=mtd1.img bs=64K
+dd if=/dev/mtd2 of=mtd2.img bs=64K
+tftp -l mtd1.img -p 172.16.17.198
+tftp -l mtd2.img -p 172.16.17.198
+cat mtd1.img mtd2.img > flash.img
+
+su nuova UUB da flashare se scriviamo i file da petalinux funziona:
+da petalinux:
+
+flash_erase /dev/mtd1 0 0
+flash_erase /dev/mtd2 0 0
+tftp -g -l mtd1.img -r mtd1.img 172.16.17.198
+tftp -g -l mtd2.img -r mtd2.img 172.16.17.198
+flashcp mtd1.img /dev/mtd1
+flashcp mtd2.img /dev/mtd2
+
+----------------------------------------------------------
+Procedura di clonazione flash funzionante:
+tramite uboot lanciato da XMD (procedura in alto):
+E' possibile usare uboot da flash senza stopparlo.
+
+sf probe
+sf read 0x1000000 0x0 0x2000000	... spostamento flash da 0 a 0x2000000 in ram a indirizzo 0x1000000
+stop	... fermare uboot
+
+attraverso tools di SDK dump e restore fare il clone della memoria ram da indirizzo 0x1000000 per 0x2000000 locazioni
+si ottiene file dump.bin di 32Mb
+
+
+		         		offset          mask_flags
+ 0: qspi-fsbl-uboot     0x00200000      0x00000000      0
+ 1: qspi-ubi-itb        0x01800000      0x00200000      0
+
+
+ 2: qspi-ubi-rootfs     0x06600000      0x01a00000      0
+
+
+
+MY SCRIPT 
+
+touch upgrade.sh
+
+#!/bin/sh
+#UPGRADE image.ub from linux ubuntu by tftp
+echo "Upgrade UUB ..."
+tftp -g -l image.ub -r image.ub 172.16.17.198
+tftp -g -l zynq_design_wrapper.bit -r zynq_design_wrapper.bit 172.16.17.198
+ubiattach -p /dev/mtd2		ubidetach -p /dev/mtd2
+mount -t ubifs ubi0:itbs /boot
+cp image.ub /boot	
+cp zynq_design_wrapper.bit /boot
+sync
+umount /boot
+
+
+
+
+
+
