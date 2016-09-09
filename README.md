@@ -21,6 +21,7 @@ uub.bin is the image file of entire flash memory
 -	ssd_test (D. Martello)
 -	pmt_hv (D. Martello)
 -	trigger control (D. Nitz) developing (G. Marsella)
+
 All source code are available under SDK's workspace of uub-firmware
 	
 Initialization of UUB's devices automatically at startup
