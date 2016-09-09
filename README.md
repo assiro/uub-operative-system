@@ -2,7 +2,7 @@
 
 UUB Petalinux global firmware integration:
 
-uub.bin is the file image of entire flash memory
+uub.bin is the image file of entire flash memory
 
 - UBI sub-system implemented and works!
 
