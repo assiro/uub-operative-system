@@ -11,16 +11,16 @@ uub.bin is the image file of entire flash memory
 - Device tree with USB, I2C, SPI, UART (AXI Uartlite not tested)
 
 - Applications implemented:
-	scope (R. Assiro)
-	led
-	acquire
-	adc
-	uub_init (UUB intialization R. Assiro)
-	slowc (Karl-Heinz)
-	uub_init
-	ssd_test (D. Martello)
-	pmt_hv (D. Martello)
-	trigger control (D. Nitz) developing (G. Marsella)
+-	scope (R. Assiro)
+-	led
+-	acquire
+-	adc
+-	uub_init (UUB intialization R. Assiro)
+-	slowc (Karl-Heinz)
+-	uub_init
+-	ssd_test (D. Martello)
+-	pmt_hv (D. Martello)
+-	trigger control (D. Nitz) developing (G. Marsella)
 All source code are available under SDK's workspace of uub-firmware
 	
 Initialization of UUB's devices automatically at startup
