@@ -1,6 +1,6 @@
 # Firmware distribution for UUB 
 
-UUB Petalinux System with 
+UUB Petalinux global firmware integration:
 
 uub.bin is the file image of entire flash memory
 
@@ -11,18 +11,21 @@ uub.bin is the file image of entire flash memory
 - Device tree with USB, I2C, SPI, UART (AXI Uartlite not tested)
 
 - Applications implemented:
-	scope
+	scope (R. Assiro)
 	led
 	acquire
 	adc
+	uub_init (UUB intialization R. Assiro)
+	slowc (Karl-Heinz)
 	uub_init
-	ssd_test
-	pmt_hv
-	trigger control (D. Nitz) developing
+	ssd_test (D. Martello)
+	pmt_hv (D. Martello)
+	trigger control (D. Nitz) developing (G. Marsella)
+All source code are available under SDK's workspace of uub-firmware
 	
-Initialization of UUB's devices automatically at start up
+Initialization of UUB's devices automatically at startup
 
-UBI is working fine! To upgrade the system and bitstream is easy as like to copy a file
+UBI is working fine! To upgrade the system and bitstream is easy like to copy a file
 	
 Web server: works!
 
