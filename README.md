@@ -40,5 +40,7 @@ More info to: http://elettronica.le.infn.it/?page_id=898
 
 login: root - passwd: root
 
+MAC address: 00:0A:35:00:1E:53 - DHCP active
+
 For any questions: roberto.assiro@le.infn.it
 
