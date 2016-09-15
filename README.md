@@ -43,7 +43,8 @@ login: root - passwd: root
 MAC address: 00:0A:35:00:1E:53 - DHCP active
 
 For any questions: roberto.assiro@le.infn.it
-#########################################################################
+
+
 ############## Procedure to upgrade UUB by TFTP #########################
 
  - turn on the UUB and stop the boot during the counting. U-boot prompt
@@ -53,5 +54,5 @@ For any questions: roberto.assiro@le.infn.it
  - sf update 0x10000000 0x0 0x2000000
  
  The flash memory is programmed. Reboot the UUB
-
+#########################################################################
 
