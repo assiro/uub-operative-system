@@ -54,5 +54,4 @@ For any questions: roberto.assiro@le.infn.it
  - sf update 0x10000000 0x0 0x2000000
  
  The flash memory is programmed. Reboot the UUB
--------------------------------------------------------------------------
 
