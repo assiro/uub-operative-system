@@ -1,0 +1,57 @@
+WP1 VIVADO IP BLOCK ADDRESS MAP GPIO controller
+
+
+ADC Memory map BRAM controller:
+
+ADC 1 = AXI address 0x50000000
+ADC 2 = AXI address 0x51000000
+ADC 3 = AXI address 0x52000000
+ADC 4 = AXI address 0x53000000
+ADC 5 = AXI address 0x54000000
+
+#####################################################################
+
+ADC WP1 acquisition control register: gpio_0 (output)
+
+int_trig = AXI address 0x55000000
+
+int_trig bit(0) = (Internal clock for acquisition data to BRAM)
+int_trig bit(1) = (1 = Internal TRIGGER) (0 = External TRIGGER)
+int_trig bit(2) = (ASY LED signal)
+int_trig bit(3) = Enable LED shot from PPS (1 = Enabled  0 = disabled)
+int_trig bit(4) = 1 FPGA lecce trigger enabled for data monitoring
+int_trig bit(5) = 1 trigger Nitz enabled for data monitoring
+int_trig bit(6) = nc
+int_trig bit(7) = Riarmo trigger
+
+#####################################################################
+
+ADC WP1 acquisition control trigger threshold: gpio_2 (output)
+
+TRIG_TRESH = AXI address 0x55001000 trigger treshold 32 bit
+
+treshold ch1 bit 0 - 9 = 10 bit value
+treshold ch2 bit 10 - 19 = 10 bit value
+treshold ch3 bit 20 - 29 = 10 bit value
+
+trig_mode = bit 30
+trig_charge = bit 31 high load threshold in fpga
+
+######################################################################
+
+ADC WP1 acquisition time trigger register: gpio_1 (input)
+
+stop_trig = 0x56000000 data 16 bit
+
+
+
+
+######################################################################
+
+LED CONTROLLER:
+
+LED dalay register for shower simulation
+
+AXI address 0x56001000  data 32 bit
+
+
