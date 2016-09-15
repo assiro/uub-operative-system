@@ -21,7 +21,7 @@ uub.bin is the image file of entire flash memory
 -	pmt_hv (D. Martello)
 -	trigger control (D. Nitz) developing (G. Marsella)
 
-All source code are available under SDK's workspace of uub-firmware
+All source code are available under SDK's workspace of uub-firmware (platform for developing software)
 	
 Initialization of UUB's devices automatically at startup
 
@@ -32,6 +32,7 @@ Web server: works!
 USB: works!
 
 SPI0, SPI1, I2C0, I2C1: work!
+Uart-lite is present but not tested yet
 
 TCF Agent for SDK development and cross-compiling enabled
 
@@ -42,4 +43,15 @@ login: root - passwd: root
 MAC address: 00:0A:35:00:1E:53 - DHCP active
 
 For any questions: roberto.assiro@le.infn.it
+#########################################################################
+############## Procedure to upgrade UUB by TFTP #########################
+
+ - turn on the UUB and stop the boot during the counting. U-boot prompt
+ - set serverip 172.16.17.198 && set ipaddr 172.16.17.1
+ - tftp 0x10000000 uub.bin   
+ - sf probe
+ - sf update 0x10000000 0x0 0x2000000
+ 
+ The flash memory is programmed. Reboot the UUB
+
 
