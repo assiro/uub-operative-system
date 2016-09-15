@@ -47,7 +47,7 @@ For any questions: roberto.assiro@le.infn.it
 
 ----------- Procedure to upgrade UUB by TFTP ----------------------------
 
- - turn on the UUB and stop the boot during the counting. U-boot prompt
+ - turn the UUB on and stop the boot during the counting. U-boot prompt
  - set serverip 172.16.17.198 && set ipaddr 172.16.17.1
  - tftp 0x10000000 uub.bin   
  - sf probe
