@@ -16,7 +16,7 @@ uub.bin is the image file of entire flash memory
 - led continus led shot (R.Assiro)
 - led_dac Intensity of lef shot (R.Assiro)
 - acquire UUB real time data acquisition (G.Marsella R.Sato)
-- uub_init (UUB intialization R. Assiro)
+- uub_init UUB devices intialization (R. Assiro)
 - slowc comunication program and control from zynq and MPS450 (K.H.Beker)
 - uub_init initialization of UUB at boot (R.Assiro)
 - ssd_test Test, acquisition and settings for SSD detector (D. Martello)
