@@ -10,20 +10,22 @@ uub.bin is the image file of entire flash memory
 - Device tree with USB, I2C, SPI, UART (AXI Uartlite not tested)
 
 - Applications implemented:
--	scope (R. Assiro)
--	led
--	acquire
--	adc
--	uub_init (UUB intialization R. Assiro)
--	slowc (Karl-Heinz)
--	uub_init
--	ssd_test (D. Martello)
--	pmt_hv (D. Martello)
--	trigger control (D. Nitz) developing (G. Marsella)
+
+ Name ----- contents ---- Author
+- scope - Real time monitor of input signals 10 channels (R. Assiro)
+- led continus led shot (R.Assiro)
+- led_dac Intensity of lef shot (R.Assiro)
+- acquire UUB real time data acquisition (G.Marsella R.Sato)
+- uub_init (UUB intialization R. Assiro)
+- slowc comunication program and control from zynq and MPS450 (K.H.Beker)
+- uub_init initialization of UUB at boot (R.Assiro)
+- ssd_test Test, acquisition and settings for SSD detector (D. Martello)
+- pmt_hv High voltage control (D. Martello)
+- trigger setup and control of trigger (D. Nitz) developing (G. Marsella)
 
 All source code are available under SDK's workspace of uub-firmware (platform for developing software)
 	
-Initialization of UUB's devices automatically at startup
+Initialization of UUB's devices automatically at boot
 
 UBI is working fine! To upgrade the system and bitstream is easy like to copy a file
 	
