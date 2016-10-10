@@ -6,7 +6,7 @@ uub.bin is the image file of entire flash memory
 
 Current version of system Beta Test 0.2  - september 2016
 
-#Changelog ver. B.T. 0.2
+#Change log ver. Beta Test 0.2
 •	 Implementation of “patching” program for UUB - updating firmware and upgrading software
 
 •	Custom commands definition for settings and functions
@@ -16,6 +16,8 @@ Current version of system Beta Test 0.2  - september 2016
 •	Implementation programs using D.Nitz’s trigger (G.Marsella)
 
 •	Bugs fixed in some scripts
+
+•	Silicon PM control program implemented
 
 ----------------------------------------------------------------------------------
 
