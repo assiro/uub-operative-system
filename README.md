@@ -3,12 +3,18 @@
 UUB Petalinux global firmware integration:
 
 uub.bin is the image file of entire flash memory
+
 Current version of system Beta Test 0.2
-Change log ver. B.T. 0.2
+
+Changelog ver. B.T. 0.2
 •	 Implementation of “patching” program for UUB - updating firmware and upgrading software
+
 •	Custom commands definition for settings and functions
+
 •	Uart-lite (gps uart) device tree problem resolved
+
 •	Implementation first programs using D.Nitz’s trigger (G.Marsella)
+
 •	Bugs fixed in some scripts
 
 - UBI sub-system implemented and works!
