@@ -4,7 +4,7 @@ UUB Petalinux global firmware integration:
 
 uub.bin is the image file of entire flash memory
 
-Current version of system Beta Test 0.2
+Current version of system Beta Test 0.2 september 2016
 
 Changelog ver. B.T. 0.2
 •	 Implementation of “patching” program for UUB - updating firmware and upgrading software
