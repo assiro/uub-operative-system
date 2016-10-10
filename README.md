@@ -13,7 +13,7 @@ Changelog ver. B.T. 0.2
 
 •	Uart-lite (gps uart) device tree problem resolved
 
-•	Implementation first programs using D.Nitz’s trigger (G.Marsella)
+•	Implementation programs using D.Nitz’s trigger (G.Marsella)
 
 •	Bugs fixed in some scripts
 
