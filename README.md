@@ -1,13 +1,20 @@
-# Firmware distribution for UUB 
+# Operative system and firmware distribution for UUB 
 
 UUB Petalinux global firmware integration:
 
 uub.bin is the image file of entire flash memory
+Current version of system Beta Test 0.2
+Change log ver. B.T. 0.2
+•	 Implementation of “patching” program for UUB - updating firmware and upgrading software
+•	Custom commands definition for settings and functions
+•	Uart-lite (gps uart) device tree problem resolved
+•	Implementation first programs using D.Nitz’s trigger (G.Marsella)
+•	Bugs fixed in some scripts
 
 - UBI sub-system implemented and works!
-- Bitstream FPGA by D.Nitz (WP2) and WP1 block 
+- Bitstream FPGA by D.Nitz (fpga.bit) 
 
-- Device tree with USB, I2C, SPI, UART (AXI Uartlite not tested)
+- Device tree with USB, I2C, SPI, UART, AXI Uartlite
 
 - Applications implemented:
 
@@ -34,7 +41,7 @@ Web server: works!
 USB: works!
 
 SPI0, SPI1, I2C0, I2C1: work!
-Uart-lite is present but not tested yet
+Uart-lite is working
 
 TCF Agent for SDK development and cross-compiling enabled
 
