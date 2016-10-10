@@ -16,7 +16,9 @@ Changelog ver. B.T. 0.2
 •	Implementation first programs using D.Nitz’s trigger (G.Marsella)
 
 •	Bugs fixed in some scripts
+
 #################################################################################################
+
 - UBI sub-system implemented and works!
 - Bitstream FPGA by D.Nitz (fpga.bit) 
 
@@ -59,14 +61,4 @@ MAC address: 00:0A:35:00:1E:53 - DHCP active
 
 For any questions: roberto.assiro@le.infn.it
 
-
------------ Procedure to upgrade UUB by TFTP ----------------------------
-
- - turn the UUB on and stop the boot during the counting. U-boot prompt
- - set serverip 172.16.17.1 && set ipaddr 172.16.17.198 (ip numbers defined under your network)
- - tftp 0x10000000 uub.bin   
- - sf probe
- - sf update 0x10000000 0x0 0x2000000
- 
- The flash memory is programmed. Reboot the UUB
 
