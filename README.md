@@ -16,7 +16,7 @@ Changelog ver. B.T. 0.2
 •	Implementation first programs using D.Nitz’s trigger (G.Marsella)
 
 •	Bugs fixed in some scripts
-
+#################################################################################################
 - UBI sub-system implemented and works!
 - Bitstream FPGA by D.Nitz (fpga.bit) 
 
