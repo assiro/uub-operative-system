@@ -1,8 +1,8 @@
 # Operative system and firmware distribution for UUB 
 
-UUB Petalinux global firmware integration:
+UUB Petalinux system and firmware(fpga) integration:
 
-uub.bin is the image file of entire flash memory
+uub.bin is the image file of entire flash memory (how to use it into uub manual)
 
 Current version of system Beta Test 0.2  - september 2016
 
@@ -60,6 +60,8 @@ More info to: http://elettronica.le.infn.it/?page_id=898
 login: root - passwd: root
 
 MAC address: 00:0A:35:00:1E:53 - DHCP active
+
+serial console speed: 9600 baud
 
 For any questions: roberto.assiro@le.infn.it
 
