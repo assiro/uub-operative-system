@@ -28,7 +28,6 @@ Current version of system Beta Test 0.2  - september 2016
 
 - Applications implemented:
 
- Name ----- contents ---- Author
 - scope - Real time monitor of input signals 10 channels (R. Assiro)
 - led continus led shot (R.Assiro)
 - led_dac Intensity of lef shot (R.Assiro)
