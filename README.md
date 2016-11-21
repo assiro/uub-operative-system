@@ -4,7 +4,34 @@ UUB Petalinux system and firmware(fpga) integration:
 
 uub.bin is the image file of entire flash memory (please see uub manual to use uub.bin)
 
-Current version of system Beta Test 0.2  - september 2016
+Current version of system Beta Test 0.78  - November 2016
+
+#Change log ver. Beta Test 0.78  (November 2016)
+•	New U-boot and new environment variables with new settings
+
+•	Speed serial system consol to 115200 baud  (u-boot and petalinux)
+
+•	U.I.O. (Userspace I/O) to access connected PL BRAM via AXI bus (DMA)
+
+•	DEVICE TREE changed with new FPGA definitions and U.I.O. implemented
+
+•	New flash memory volume /flash  in mtd3 (80 Mb) for user
+
+•	New recovery volume for safety of system (/recovery)
+
+•	Attaching of partitions at boot (important for safety)
+
+•	Alias IP address eth0:0 192.168.168.168 (helpful in the field)
+
+•	bootargs for kernel changed (new in u-boot’s environment)
+
+Embedded Webserver:
+
+•	New web server index page
+
+•	New oscilloscope version and new functions (interactive control)
+
+•	New web pages for slow control monitoring
 
 #Change log ver. Beta Test 0.2
 •	 Implementation of “patching” program for UUB - updating firmware and upgrading software
@@ -26,21 +53,7 @@ Current version of system Beta Test 0.2  - september 2016
 
 - Device tree with USB, I2C, SPI, UART, AXI Uartlite
 
-- Applications implemented:
-
- Name ----- contents ---- Author
-- scope - Real time monitor of input signals 10 channels (R. Assiro)
-- led continus led shot (R.Assiro)
-- led_dac Intensity of lef shot (R.Assiro)
-- acquire UUB real time data acquisition (G.Marsella R.Sato)
-- uub_init UUB devices intialization (R. Assiro)
-- slowc comunication program and control from zynq and MPS450 (K.H.Beker)
-- uub_init initialization of UUB at boot (R.Assiro)
-- ssd_test Test, acquisition and settings for SSD detector (D. Martello)
-- pmt_hv High voltage control (D. Martello)
-- trigger setup and control of trigger (D. Nitz) developing (G. Marsella)
-
-All source code are available under SDK's workspace of uub-firmware (platform for developing software)
+All source code are available under SDK's workspace of uub-firmware folder WP1
 	
 Initialization of UUB's devices automatically at boot
 
@@ -64,5 +77,6 @@ MAC address: 00:0A:35:00:1E:53 - DHCP active
 serial console speed: 9600 baud
 
 For any questions: roberto.assiro@le.infn.it
+
 
 
