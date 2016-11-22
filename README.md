@@ -4,9 +4,9 @@ UUB Petalinux system and firmware(fpga) integration:
 
 uub.bin is the image file of entire flash memory (please see uub manual to use uub.bin)
 
-Current version of system Beta Test 0.78  - November 2016
+Current version of system Beta Test 0.82  - November 2016
 
-#Change log ver. Beta Test 0.78  (November 2016)
+#Change log ver. Beta Test 0.82  (November 2016)
 •	New U-boot and new environment variables with new settings
 
 •	Speed serial system consol to 115200 baud  (u-boot and petalinux)
