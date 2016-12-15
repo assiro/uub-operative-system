@@ -2,9 +2,7 @@
 
 UUB Petalinux system and firmware(fpga) integration:
 
-uub.bin is the image file of entire flash memory (please read uub manual to use uub.bin)
-
-Current version of system Beta Test 0.82  - November 2016
+uub.bin is the image file of entire flash memory (please read uub manual to store uub.bin into UUB's flash memory)
 
 #Change log ver. Beta Test 0.88  (December 2016)
 •	New U-boot and new environment variables with new settings
