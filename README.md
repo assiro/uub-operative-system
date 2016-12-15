@@ -2,11 +2,11 @@
 
 UUB Petalinux system and firmware(fpga) integration:
 
-uub.bin is the image file of entire flash memory (please see uub manual to use uub.bin)
+uub.bin is the image file of entire flash memory (please read uub manual to use uub.bin)
 
 Current version of system Beta Test 0.82  - November 2016
 
-#Change log ver. Beta Test 0.82  (November 2016)
+#Change log ver. Beta Test 0.88  (December 2016)
 •	New U-boot and new environment variables with new settings
 
 •	Speed serial system consol to 115200 baud  (u-boot and petalinux)
@@ -25,6 +25,8 @@ Current version of system Beta Test 0.82  - November 2016
 
 •	bootargs for kernel changed (new in u-boot’s environment)
 
+•	Watchdog (WTD) implemented in device tree (it needs new slow control firmware)
+
 Embedded Webserver:
 
 •	New web server index page
@@ -33,7 +35,7 @@ Embedded Webserver:
 
 •	New web pages for slow control monitoring
 
-#Change log ver. Beta Test 0.2
+#Change log ver. Beta Test 0.2 (running in E.A. Malargue)
 •	 Implementation of “patching” program for UUB - updating firmware and upgrading software
 
 •	Custom commands definition for settings and functions
