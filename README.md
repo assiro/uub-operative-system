@@ -4,7 +4,7 @@ UUB Petalinux system and firmware(fpga) integration:
 
 uub.bin is the RAW file of entire flash memory (please read uub manual to store uub.bin into UUB's flash memory)
 
-#Change log ver. Beta Test 0.88  (December 2016)
+#Change log ver. E.A. 0.90  (December 2016)
 •	New U-boot and new environment variables with new settings
 
 •	Speed serial system consol to 115200 baud  (u-boot and petalinux)
