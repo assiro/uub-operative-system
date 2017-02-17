@@ -6,6 +6,8 @@ uub.bin is the RAW file of entire flash memory (please read uub manual to store 
 
 #Change log ver. E.A. 0.94  (February 2017)
 •	upgrade FPGA firmware (bug fixed)
+	
+	Upgrade scope and web pages
 
 	New U-boot and new environment variables with new settings
 
