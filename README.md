@@ -11,7 +11,7 @@ Command is : uub-update ip number  (ip number is your TFTP Server) example : uub
 #Change log ver. E.A. 0.95.1  (March 2017)
 •	upgrade webserver interface
 
-•	D.A.Q. Start and stop by webserver automatically
+•	D.A.Q. start and stop automatically using local web server
 
 •	Scripts bugs fixed
 
