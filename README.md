@@ -4,7 +4,7 @@ UUB Petalinux system and firmware(fpga) integration:
 
 uub.bin is the RAW file of entire flash memory. You need uub.bin just only for empty UUB's flash memory. 
 
-To upgrade to new one version you need: image.ub and fpga.bit 
+To upgrade to new version you need: image.ub and fpga.bit 
 
 Command is : uub-update <ip number> - ip number is your TFTP Server
 
