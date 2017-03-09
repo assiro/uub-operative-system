@@ -21,6 +21,8 @@ Command is : uub-update <ip number> - ip number is your TFTP Server
 
 •	ADC registers setting and control improved
 
+•	DAQ software is not implemented (petalinux-build)
+
 
 #Change log ver. E.A. 0.94  (February 2017)
 •	upgrade FPGA firmware (bug fixed)
