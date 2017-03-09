@@ -19,6 +19,8 @@ Command is : uub-update <ip number> - ip number is your TFTP Server
 
 •	Radio reset control implemented
 
+•	ADC registers setting and control improved
+
 
 #Change log ver. E.A. 0.94  (February 2017)
 •	upgrade FPGA firmware (bug fixed)
