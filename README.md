@@ -2,7 +2,19 @@
 
 UUB Petalinux system and firmware(fpga) integration:
 
-uub.bin is the RAW file of entire flash memory (please read uub manual to store uub.bin into UUB's flash memory)
+uub.bin is the RAW file of entire flash memory. You need uub.bin just only for empty UUB's flash memory. To upgrade to new one version you need image.ub and fpga.bit
+
+#Change log ver. E.A. 0.95.1  (March 2017)
+•	upgrade webserver interface
+
+•	D.A.Q. Start and stop by webserver automatically
+
+•	Scripts bugs fixed
+
+•	QSPI reset for Zynq reboot
+
+•	Radio reset control implemented
+
 
 #Change log ver. E.A. 0.94  (February 2017)
 •	upgrade FPGA firmware (bug fixed)
@@ -37,7 +49,7 @@ Embedded Webserver:
 
 •	New web pages for slow control monitoring
 
-#Change log ver. Beta Test 0.2 (running in E.A. Malargue)
+#Change log ver. Beta Test 0.2 (firts version on E.A. september 2016)
 •	 Implementation of “patching” program for UUB - updating firmware and upgrading software
 
 •	Custom commands definition for settings and functions
