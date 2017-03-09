@@ -1,4 +1,4 @@
-# Operative system and firmware distribution for UUB (ver.0.95.1 is working in the field)
+# Operative system and firmware distribution for UUB (ver.0.95)
 
 UUB Petalinux system and firmware(fpga) integration:
 
