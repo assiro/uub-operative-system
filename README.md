@@ -1,4 +1,4 @@
-# Operative system and firmware distribution for UUB (ver.0.95)
+# Operative system and firmware distribution for UUB
 
 UUB Petalinux system and firmware(fpga) integration:
 
