@@ -13,7 +13,7 @@ Command is : uub-update ip number  (ip number is your TFTP Server) example : uub
 
 •	D.A.Q. start and stop automatically using local web server
 
-•	Scripts bugs fixed
+•	Bash Scripts optimizations
 
 •	QSPI reset for Zynq reboot
 
