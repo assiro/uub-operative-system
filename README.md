@@ -57,7 +57,7 @@ Embedded Webserver:
 
 •	New web pages for slow control monitoring
 
-#Change log ver. Beta Test 0.2 (firts version on E.A. september 2016)
+#Change log ver. Beta Test 0.2 (firts version on E.A. 10/2016)
 •	 Implementation of “patching” program for UUB - updating firmware and upgrading software
 
 •	Custom commands definition for settings and functions
