@@ -6,7 +6,7 @@ uub.bin is the RAW file of entire flash memory. You need uub.bin just only for e
 
 To upgrade to new version you need: image.ub and fpga.bit 
 
-Command is : uub-update <ip number> - ip number is your TFTP Server
+Command is : uub-update ip number  (ip number is your TFTP Server) example : uub-update 192.168.1.1
 
 #Change log ver. E.A. 0.95.1  (March 2017)
 •	upgrade webserver interface
