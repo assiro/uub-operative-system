@@ -1,4 +1,5 @@
 # Operative system and firmware distribution for UUB
+# Current system version 0.95.1 (march 2017)
 
 UUB Petalinux system and firmware(fpga) integration:
 
