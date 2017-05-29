@@ -1,5 +1,5 @@
 # Operative system and firmware distribution for UUB
-# Current system version 0.95.1 (march 2017)
+# Current system version 0.95.1 (March 2017)
 
 UUB Petalinux system and firmware(fpga) integration:
 
@@ -7,9 +7,9 @@ uub.bin is the RAW file of entire flash memory. You need uub.bin just only for e
 
 To upgrade the UUB to new version you need: image.ub and fpga.bit by tftp server or USB memory stick 
 
-Command is : uub-update ip number  (ip number is your TFTP Server) example : uub-update 192.168.1.1
+Last bitstream for the Zynq's FPGA is included into the uub.bin file
 
-# Change log ver. E.A. 0.95.1  (March 2017)
+# Change log ver. E.A. 0.95.1
 •	upgrade web server interface
 
 •	D.A.Q. start and stop automatically using local web server
