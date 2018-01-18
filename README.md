@@ -1,5 +1,14 @@
 # Operative system and firmware distribution for UUB
-# Current system version 0.95.1 (March 2017)
+# System version 0.96 (Dicember 2017) - UUB layout V2
+New system version and bitstream for new UUB layout V2 
+This is developing release and not final for V2 version (NOT READY FOR THE FIELD)
+# Change log ver E.A. 0.96
+•	New initialization after boot for device
+•	ADC power downd pin manage
+•	Watchdog disabled
+
+
+# System version 0.95.1 (March 2017) - UUB layout V1
 
 UUB Petalinux system and firmware(fpga) integration:
 
