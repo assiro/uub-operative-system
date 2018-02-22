@@ -1,7 +1,16 @@
 # Operative system and firmware distribution for UUB
-# System version 0.96 (Dicember 2017) - UUB layout V2
+# System version 0.97 (February 2018) - UUB layout V2
 New system version and bitstream for new UUB layout V2 version
-This is developing release and not final (NOT READY FOR THE FIELD)
+This version is NOT compatible for UUB V1 layout (sys 0.95)
+# Change log ver E.A. 0.97
+•	New initialization after boot for new device Led DAC, Fan-out
+
+•	New UBOOT version with new important definitions (kernel image size)
+
+•	ADC power downd pin manage
+
+•	Watchdog disabled
+
 # Change log ver E.A. 0.96
 •	New initialization after boot for device
 
