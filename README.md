@@ -11,8 +11,10 @@ This version is NOT compatible with UUB V1 layout (for UUB version 1 use sys 0.9
 
 •	Watchdog enabled and works
 
-•	New initialization after boot for device
+•	New initialization for devices (ADC inverted for SITAEL modifications)
+
 •	Test tools implemented in web server page under UUB TEST
+
 •	ADC power downd pin manage
 
 
@@ -21,8 +23,6 @@ This version is NOT compatible with UUB V1 layout (for UUB version 1 use sys 0.9
 UUB Petalinux system and firmware(fpga) integration:
 
 uub.bin is the RAW file of entire flash memory. You need uub.bin just only for empty UUB's flash memory. 
-
-To upgrade the UUB to new version you need: image.ub and fpga.bit by tftp server or USB memory stick 
 
 # Change log ver. E.A. 0.95.1
 •	upgrade web server interface
@@ -41,9 +41,9 @@ To upgrade the UUB to new version you need: image.ub and fpga.bit by tftp server
 
 •	upgrade FPGA firmware (bug fixed)
 	
-	Upgrade scope and web pages
+•	Upgrade scope and web pages
 
-	New U-boot and new environment variables with new settings
+•	New U-boot and new environment variables with new settings
 
 •	Speed serial system consol to 115200 baud  (u-boot and petalinux)
 
@@ -86,33 +86,15 @@ Embedded Webserver:
 
 ----------------------------------------------------------------------------------
 
-- UBI sub-system implemented and works!
-- Bitstream FPGA by D.Nitz (fpga.bit) 
-
-- Device tree with USB, I2C, SPI, UART, AXI Uartlite
-
-All source code are available under SDK's workspace of uub-firmware folder WP1
-	
-Initialization of UUB's devices automatically at boot
-
-UBI is working fine! To upgrade the system and bitstream is easy like to copy a file
-	
-Web server: works!
-
-USB: works!
-
-SPI0, SPI1, I2C0, I2C1: work!
-Uart-lite is working
-
-TCF Agent for SDK development and cross-compiling enabled
-
-More info to: http://elettronica.le.infn.it/?page_id=898
+# UUB general info
 
 login: root - passwd: root  (change password by patch if needed)
 
 MAC address: 00:0A:35:00:1E:53 - DHCP active
 
 serial console speed: 115200 baud
+
+More info to: http://elettronica.le.infn.it/?page_id=898
 
 For any questions: roberto.assiro@le.infn.it
 
