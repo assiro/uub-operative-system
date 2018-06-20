@@ -1,23 +1,21 @@
 # Operative system and firmware distribution for UUB
-# System version 0.97.6 (March 2018) - UUB layout V2
-New system version and bitstream for new UUB layout V2 version
-This version is NOT compatible with UUB V1 layout (last sys 0.95)
-# Change log ver E.A. 0.97
+# System version 0.97.7 (June 2018) - UUB layout V2 (SITAEL)
+New system version and bitstream (31/05/2018) for new UUB layout V2 version with Sitael modifications
+This version is NOT compatible with UUB V1 layout (for UUB version 1 use sys 0.95.1)
+# Change log ver E.A. 0.97.7 
 •	New initialization after boot for new device Led DAC, Fan-out
 
 •	New UBOOT version with new important definitions (kernel image size)
 
-•	ADC power downd pin manage
+•	ADC power down pin manage
 
 •	Watchdog enabled and works
 
-# Change log ver E.A. 0.96
 •	New initialization after boot for device
 
 •	ADC power downd pin manage
 
-•	Watchdog disabled
-
+	Test tools implemented in web server page under UUB TEST
 
 # System version 0.95.1 (March 2017) - UUB layout V1
 
@@ -26,8 +24,6 @@ UUB Petalinux system and firmware(fpga) integration:
 uub.bin is the RAW file of entire flash memory. You need uub.bin just only for empty UUB's flash memory. 
 
 To upgrade the UUB to new version you need: image.ub and fpga.bit by tftp server or USB memory stick 
-
-Last bitstream for the Zynq's FPGA is included into the uub.bin file
 
 # Change log ver. E.A. 0.95.1
 •	upgrade web server interface
@@ -44,8 +40,6 @@ Last bitstream for the Zynq's FPGA is included into the uub.bin file
 
 •	DAQ software is not implemented (petalinux-build)
 
-
-# Change log ver. E.A. 0.94  (February 2017)
 •	upgrade FPGA firmware (bug fixed)
 	
 	Upgrade scope and web pages
