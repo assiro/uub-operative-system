@@ -14,6 +14,10 @@ This version is NOT compatible with UUB V1 layout (for UUB version 1 use sys 0.9
 •	New initialization for devices (ADC inverted for SITAEL modifications)
 
 •	Test tools implemented in web server page under UUB TEST
+		Test DAC 5694 (LED)
+		Test DAC 7551 (clock)
+		Test GPS serial lines
+		Test Radio reset
 
 •	ADC power downd pin manage
 
