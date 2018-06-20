@@ -86,11 +86,11 @@ Embedded Webserver:
 
 ----------------------------------------------------------------------------------
 
-# UUB general info
+# UUB user info
 
 login: root - passwd: root  (change password by patch if needed)
 
-MAC address: 00:0A:35:00:1E:53 - DHCP active
+Default MAC address: 00:0A:35:00:1E:53 - DHCP active
 
 serial console speed: 115200 baud
 
