@@ -12,10 +12,9 @@ This version is NOT compatible with UUB V1 layout (for UUB version 1 use sys 0.9
 •	Watchdog enabled and works
 
 •	New initialization after boot for device
-
+•	Test tools implemented in web server page under UUB TEST
 •	ADC power downd pin manage
 
-	Test tools implemented in web server page under UUB TEST
 
 # System version 0.95.1 (March 2017) - UUB layout V1
 
@@ -113,7 +112,7 @@ login: root - passwd: root  (change password by patch if needed)
 
 MAC address: 00:0A:35:00:1E:53 - DHCP active
 
-serial console speed: 9600 baud
+serial console speed: 115200 baud
 
 For any questions: roberto.assiro@le.infn.it
 
