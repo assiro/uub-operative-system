@@ -17,6 +17,8 @@ This version is NOT compatible with UUB V1 layout (for UUB version 1 use sys 0.9
 
 •	ADC power downd pin manage
 
+•	DOUBLE BOOT IMPLEMENTED: to run previous version digit: RUN RECOVERY on uboot prompt
+
 
 # System version 0.95.1 (March 2017) - UUB layout V1
 
