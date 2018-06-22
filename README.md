@@ -4,7 +4,7 @@ New petalinux version and bitstream (31/05/2018) for new UUB layout V2 with Sita
 
 This version is NOT compatible with UUB V1 layout (for UUB version 1 use sys 0.95.1)
 # Change log ver E.A. 0.97.8
-•	bugs fixed in webserver pages 
+•	bugs fixed in pages of webserver 
 
 •	fixed important scope's issue ver. 1.5 (multiprocess bug without fpga trigger)
 
