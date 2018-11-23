@@ -7,7 +7,7 @@ This version is NOT compatible with UUB V1 layout (for UUB version 1 use sys 0.9
 
 •	Clock frequency generator analyzer web pannel
 
-•	Device Tree I2C 100Khz Frequency setting
+•	Device Tree I2C 100Khz Frequency setting (test for I2C hangs)
 
 # Change log ver E.A. 0.97.8
 •	bugs fixed in pages of webserver 
