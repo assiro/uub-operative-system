@@ -1,8 +1,14 @@
 # Operative system and firmware distribution for UUB
-# System version 0.97.8 (June 2018) - UUB layout V2 (SITAEL)
-New petalinux version and bitstream (31/05/2018) for new UUB layout V2 with Sitael modifications
-
+# System version Enginiring Array 0.98 (November 2018) - UUB layout V2 (SITAEL)
 This version is NOT compatible with UUB V1 layout (for UUB version 1 use sys 0.95.1)
+
+# Change log ver E.A. 0.98
+•	implementation UIO interrupts 2 and 9 (device tree)
+
+•	Clock frequency generator analyzer web pannel
+
+•	Device Tree I2C 100Khz Frequency setting
+
 # Change log ver E.A. 0.97.8
 •	bugs fixed in pages of webserver 
 
