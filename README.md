@@ -1,6 +1,15 @@
-# Operative system and firmware distribution for UUB
+# Operative system and firmware distribution for UUB - Engineering Array
+
+# System version 0.95.5 (febbruary 2019) - UUB layout V1
+change log:
+- New Uboot with external device tree implementation
+- possibility to upgrade the system.dtb only by radio
+- new I2C on FPGA on pin W12 and V12
+- UIO interrupts
+- web server upgraded (scope)
+
 # System version Enginiring Array 0.98 (November 2018) - UUB layout V2 (SITAEL)
-This version is NOT compatible with UUB V1 layout (for UUB version 1 use sys 0.95.1)
+This version is NOT compatible with UUB V1 layout (for UUB V1 use sys 0.95.5)
 
 # Change log ver E.A. 0.98
 •	implementation UIO interrupts 2 and 9 (device tree)
