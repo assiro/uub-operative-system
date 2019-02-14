@@ -10,13 +10,10 @@ change log  ver E.A. 0.95.5 :
 
 # System version Enginiring Array 0.98 (November 2018) - UUB layout V2 (SITAEL)
 This version is NOT compatible with UUB V1 layout (for UUB V1 use sys 0.95.5)
-
 Change log ver E.A. 0.98 :
-•	implementation UIO interrupts 2 and 9 (device tree)
-
-•	Clock frequency generator analyzer web pannel
-
-•	Device Tree I2C 100Khz Frequency setting (test for I2C hangs)
+- implementation UIO interrupts 2 and 9 (device tree)
+- Clock frequency generator analyzer web pannel
+- Device Tree I2C 100Khz Frequency setting (test for I2C hangs)
 
 # Change log ver E.A. 0.97.8
 •	bugs fixed in pages of webserver 
