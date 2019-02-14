@@ -16,23 +16,19 @@ Change log ver E.A. 0.98 :
 - Clock frequency generator analyzer web pannel
 - Device Tree I2C 100Khz Frequency setting (test for I2C hangs)
 
-# Change log ver E.A. 0.97.8
-•	bugs fixed in pages of webserver 
+Change log ver E.A. 0.97.8 :
 
-•	fixed important scope's issue ver. 1.5 (multiprocess bug without fpga trigger)
+- bugs fixed in pages of webserver 
+- fixed important scope's issue ver. 1.5 (multiprocess bug without fpga trigger)
 
-# Change log ver E.A. 0.97.7 
-•	New initialization after boot for new device Led DAC, Fan-out
+Change log ver E.A. 0.97.7 :
 
-•	New UBOOT version with new important definitions (kernel image size)
-
-•	ADC power down pin manage
-
-•	Watchdog enabled and works
-
-•	New initialization for devices (ADC inverted for SITAEL modifications)
-
-•	Test tools implemented in web server page under UUB TEST
+- New initialization after boot for new device Led DAC, Fan-out
+- New UBOOT version with new important definitions (kernel image size)
+- ADC power down pin manage
+- Watchdog enabled and works
+- New initialization for devices (ADC inverted for SITAEL modifications)
+- Test tools implemented in web server page under UUB TEST
 
 		Test DAC 5694 (LED)
 		
