@@ -1,4 +1,4 @@
-# Operative system and firmware distribution for UUB - Engineering Array
+# Operative system and firmware distribution for UUB
 
 # System version 0.95.5 (febbruary 2019) - UUB layout V1
 change log  ver E.A. 0.95.5 :
