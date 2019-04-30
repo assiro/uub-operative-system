@@ -1,9 +1,9 @@
 # Operative system and firmware distribution for UUB
 
-# System version 0.95.5 (febbruary 2019) - UUB layout V1
-change log  ver E.A. 0.95.5 :
-- Amiga uart ttyUL2
-- New Uboot with external device tree implementation
+# System version 0.95.6 (april 2019) - UUB layout V1
+change log  ver E.A. 0.95.6 :
+- Amiga uart ttyUL2 in device tree
+- New Uboot with external device tree implementation (system.dtb)
 - Possibility to upgrade the system.dtb (device tree) by radio
 - New I2C on FPGA on pin W12 and V12
 - UIO interrupts
