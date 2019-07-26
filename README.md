@@ -2,7 +2,7 @@
 
 # Flash memory binary file (ver 0.99.0)
 entire content of MICRON flash memory for production
-SHA256 - ba3d9cdd7db29ad8df9d1966495e323947f44fea2be6f9c24ed1774bafb7b4e0
+SHA256: ba3d9cdd7db29ad8df9d1966495e323947f44fea2be6f9c24ed1774bafb7b4e0
 
 # System version 0.95.6 (april 2019) - UUB layout V1
 change log  ver E.A. 0.95.6 :
