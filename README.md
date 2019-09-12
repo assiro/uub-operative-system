@@ -1,5 +1,14 @@
 # Operative system and firmware distribution for UUB
 
+# System version 0.99.1 upgrade (sep 2019) - UUB layout V3
+This version is not compatible with UUB V1 and V2
+
+change log:
+- new FSBL for SPI-1 parameters setting
+- bug fixed in the device tree (critic for last ver)
+- new bitstream ver. 12080919
+- applications for UUB-TEST
+
 # System version 0.99.0 (july 2019) - UUB layout V3
 This version is not compatible with UUB V1 and V2
 
