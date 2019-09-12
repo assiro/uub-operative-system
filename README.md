@@ -1,5 +1,14 @@
 # Operative system and firmware distribution for UUB
 
+# System version 0.99.0 (july 2019) - UUB layout V3
+This version is not compatible with UUB V1 and V2
+change log:
+- new I2C on FPGA for LED DAC
+- Jitter cleaner implementation
+- Manage of Front-end power supply
+- Manage of full ADCs power supply
+- New RD scope in web page
+
 # Flash memory binary file (ver 0.99.0)
 entire content of MICRON flash memory for production
 SHA256: ba3d9cdd7db29ad8df9d1966495e323947f44fea2be6f9c24ed1774bafb7b4e0
@@ -18,7 +27,7 @@ This version is NOT compatible with UUB V1 layout (for UUB V1 use sys 0.95.5)
 
 Change log ver E.A. 0.98 :
 - implementation UIO interrupts 2 and 9 (device tree)
-- Clock frequency generator analyzer web pannel
+- Clock frequency generator control and  analyzer in web pannel
 - Device Tree I2C 100Khz Frequency setting (test for I2C hangs)
 
 Change log ver E.A. 0.97.8 :
