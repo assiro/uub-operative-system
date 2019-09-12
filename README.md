@@ -2,8 +2,10 @@
 
 # System version 0.99.0 (july 2019) - UUB layout V3
 This version is not compatible with UUB V1 and V2
+
 change log:
 - new I2C on FPGA for LED DAC
+- Device tree in system.dtb file
 - Jitter cleaner implementation
 - Manage of Front-end power supply
 - Manage of full ADCs power supply
