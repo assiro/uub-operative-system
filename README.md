@@ -8,6 +8,7 @@ change log:
 - bug fixed in the device tree (critic for last ver)
 - new bitstream ver. 12080919
 - applications for UUB-TEST
+- led dac process ad5326 change
 
 # System version 0.99.0 (july 2019) - UUB layout V3
 This version is not compatible with UUB V1 and V2
