@@ -1,5 +1,13 @@
 # Operative system and firmware distribution for UUB
 
+# System version 0.99.2 upgrade (sep 2019) - UUB layout V3
+This version is not compatible with UUB V1 and V2
+
+change log:
+- Different FSBL for SPI-1 parameters setting
+- Modification of device tree for flash memory mapping address
+- Upgrade applications for UUB test
+
 # System version 0.99.1 upgrade (sep 2019) - UUB layout V3
 This version is not compatible with UUB V1 and V2
 
