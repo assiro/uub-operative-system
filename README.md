@@ -1,7 +1,7 @@
 # Operative system and firmware distribution for UUB
 
 # System version 0.99.6 upgrade (dec 2019) - UUB layout V3
-IMPORTANT! this version requires SCU firmware V3.1
+IMPORTANT! this version requires SCU firmware V3.1 or higher
 
 change log:
 - ADCs check after boot to avoid frozen traces
