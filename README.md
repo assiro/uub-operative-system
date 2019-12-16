@@ -1,5 +1,15 @@
 # Operative system and firmware distribution for UUB
 
+# System version 0.99.6 upgrade (dec 2019) - UUB layout V3
+IMPORTANT! this version requires SCU firmware V3.1
+
+change log:
+- ADCs check after boot to avoid frozen traces
+- Implemented new solution to upgrade  UUB by external server (Github)
+- new APIs for SITAEL test system
+- Upgrade of web panel
+- Last bistream inside ver. 16091219
+
 # System version 0.99.3 upgrade (oct 2019) - UUB layout V3
 IMPORTANT! this version requires SCU firmware V3.1
 
