@@ -2,13 +2,15 @@
 
 # System version 0.99.7 upgrade (feb 2020) - UUB layout V3
 IMPORTANT! this version requires SCU firmware V3.3 or higher
+- UPDATE BEFORE THE SYSTEM AND THEN SCU FIRMWARE! -
 
 change log:
-- new slowc V3.3 for new SCU firmware (V3.3)
+- new slowc V3.3 for new SCU firmware (V3.3). This firmware
 - new watchdog control by ZINQ process (watchd)
 - new APIs for SITAEL test system
 - Upgrade of web panel
-- Last bistream ver. 16091219
+- Last bistream ver. 16151219
+
 # System version 0.99.6 upgrade (dec 2019) - UUB layout V3
 
 IMPORTANT! this version requires SCU firmware V3.1 or higher
