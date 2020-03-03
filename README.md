@@ -2,7 +2,7 @@
 
 # System version 0.99.7 upgrade (feb 2020) - UUB layout V3
 IMPORTANT! this version requires SCU firmware V3.3 or higher
-- UPDATE BEFORE THE SYSTEM AND THEN SCU FIRMWARE! -
+- UPDATE THE SYSTEM BEFORE AND THEN SCU FIRMWARE! -
 
 change log:
 - new slowc V3.3 for new SCU firmware (V3.3). This firmware
