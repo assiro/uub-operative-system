@@ -1,5 +1,10 @@
 # Operative system and firmware distribution for UUB
 
+# System version 1.01.0 upgrade (September 2020) - UUB massive production
+- Nw FPGA bitsream with AXI bus splitting
+
+# System version 1.00.0 upgrade (March 2020) - UUB massive production
+
 # System version 0.99.7 upgrade (feb 2020) - UUB layout V3
 IMPORTANT! this version requires SCU firmware V3.3 or higher
 - UPDATE THE SYSTEM BEFORE AND THEN SCU FIRMWARE! -
