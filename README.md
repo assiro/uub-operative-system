@@ -1,6 +1,6 @@
 # Operative system and firmware distribution for UUB
 
-# System version 1.01.0 upgrade (October 2020) - UUB massive production
+# System version 1.01.0 upgrade (November 2020) - UUB massive production
 - New FPGA bitsream ver 14120420 with AXI bus splitting
 - SCU firmware V3.5 or higher
 - LRZSZ pakage Zmodem implementation
