@@ -2,8 +2,10 @@
 
 # System version 1.01.0 upgrade (November 2020) - UUB massive production
 - New FPGA bitsream ver 14120420 with AXI bus splitting
+- recopmpiled C program with new parameters
 - SCU firmware V3.5 or higher
 - LRZSZ pakage Zmodem implementation
+- Upgrade of internal several scripts for the test bench
 
 # System version 1.00.0 upgrade (March 2020) - UUB massive production
 
