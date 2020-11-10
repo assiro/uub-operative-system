@@ -5,7 +5,7 @@
 - recopmpiled C program with new parameters
 - SCU firmware V3.5 or higher
 - LRZSZ pakage Zmodem implementation
-- Upgrade of internal several scripts for the test bench
+- Upgrade of scripts code for the test bench
 
 # System version 1.00.0 upgrade (March 2020) - UUB massive production
 
