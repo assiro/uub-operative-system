@@ -9,6 +9,9 @@
 - Upgrade of scripts code for the test bench
 
 # System version 1.00.0 upgrade (March 2020) - UUB massive production
+- This is first realise for massive production in Sitael to update native version 0.99.0
+- FPGA bitsream ver 16151219
+- All changes from ver 0.99.1 to 0.99.7 description below
 
 # System version 0.99.7 upgrade (feb 2020) - UUB layout V3
 IMPORTANT! this version requires SCU firmware V3.3 or higher
