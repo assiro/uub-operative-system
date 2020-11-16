@@ -1,7 +1,7 @@
 # Operative system and firmware distribution for UUB
 
 # System version 1.01.0 upgrade (November 2020) - UUB massive production
-- Device tree bug fixed
+- Device tree bug fixed (mdparts) and modification of kernel bootarg in uboot env
 - FPGA bitsream ver 14120420 with AXI bus splitting
 - recopmpiled C program with new parameters
 - SCU firmware V3.5 or higher
